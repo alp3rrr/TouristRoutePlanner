@@ -12,7 +12,7 @@ import SignUp from './pages/SignUp';
 import TripPlanner from './pages/TripPlanner';
 
 // Placeholder components - will be created later
-const MapView = () => <div>Map View </div>;
+const MapView = () => <div>Map View   </div>;
 const TripSummary = () => <div>Trip Summary</div>;
 const UserProfile = () => <div>User Profile</div>;
 
