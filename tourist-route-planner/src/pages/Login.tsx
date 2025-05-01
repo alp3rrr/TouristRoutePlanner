@@ -10,7 +10,9 @@ import {
   TextField,
   Typography,
   Paper,
+  Alert,
 } from '@mui/material';
+import { useAuth } from '../contexts/AuthContext';
 
 const validationSchema = Yup.object({
   email: Yup.string()
@@ -22,15 +24,15 @@ const validationSchema = Yup.object({
 });
 
 const Login: React.FC = () => {
+  const { login, error, loading } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (values: { email: string; password: string }) => {
     try {
-      // TODO: Implement actual login logic with backend
-      console.log('Login values:', values);
-      navigate('/');
+      await login(values.email, values.password);
+      navigate('/dashboard');
     } catch (error) {
-      console.error('Login error:', error);
+      // Error is handled by the AuthContext
     }
   };
 
@@ -40,6 +42,11 @@ const Login: React.FC = () => {
         <Typography variant="h4" component="h1" gutterBottom align="center">
           Login
         </Typography>
+        {error && (
+          <Alert severity="error" sx={{ mb: 2 }}>
+            {error}
+          </Alert>
+        )}
         <Formik
           initialValues={{ email: '', password: '' }}
           validationSchema={validationSchema}
@@ -58,6 +65,7 @@ const Login: React.FC = () => {
                 error={touched.email && Boolean(errors.email)}
                 helperText={touched.email && errors.email}
                 margin="normal"
+                disabled={loading}
               />
               <TextField
                 fullWidth
@@ -71,6 +79,7 @@ const Login: React.FC = () => {
                 error={touched.password && Boolean(errors.password)}
                 helperText={touched.password && errors.password}
                 margin="normal"
+                disabled={loading}
               />
               <Button
                 type="submit"
@@ -78,8 +87,9 @@ const Login: React.FC = () => {
                 variant="contained"
                 color="primary"
                 sx={{ mt: 3, mb: 2 }}
+                disabled={loading}
               >
-                Login
+                {loading ? 'Logging in...' : 'Login'}
               </Button>
               <Box sx={{ textAlign: 'center' }}>
                 <Link component={RouterLink} to="/signup" variant="body2">

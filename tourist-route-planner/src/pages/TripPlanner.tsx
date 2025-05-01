@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Formik, Form } from 'formik';
+import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import {
   Box,
@@ -15,11 +15,21 @@ import {
   InputLabel,
   Select,
   Chip,
+  Checkbox,
+  ListItemText,
+  FormHelperText,
 } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFnsV3';
-import dayjs from 'dayjs';
+import Grid from '@mui/material/Grid';
+
+interface TripFormValues {
+  destination: string;
+  interests: string[];
+  budget: number;
+  startDate: Date;
+  endDate: Date;
+}
 
 const interests = [
   'History',
@@ -53,157 +63,134 @@ const validationSchema = Yup.object({
 const TripPlanner: React.FC = () => {
   const navigate = useNavigate();
 
-  const handleSubmit = async (values: {
-    destination: string;
-    interests: string[];
-    budget: number;
-    startDate: Date;
-    endDate: Date;
-  }) => {
-    try {
-      // TODO: Implement actual trip planning logic with backend
-      console.log('Trip planning values:', values);
-      navigate('/map');
-    } catch (error) {
-      console.error('Trip planning error:', error);
-    }
-  };
+  const formik = useFormik<TripFormValues>({
+    initialValues: {
+      destination: '',
+      interests: [],
+      budget: 1000,
+      startDate: new Date(),
+      endDate: new Date(new Date().setDate(new Date().getDate() + 7)),
+    },
+    validationSchema: Yup.object({
+      destination: Yup.string().required('Destination is required'),
+      interests: Yup.array().min(1, 'Select at least one interest'),
+      budget: Yup.number().min(100, 'Minimum budget is 100'),
+      startDate: Yup.date().required('Start date is required'),
+      endDate: Yup.date()
+        .min(Yup.ref('startDate'), 'End date must be after start date')
+        .required('End date is required'),
+    }),
+    onSubmit: (values) => {
+      console.log('Trip values:', values);
+      navigate('/summary', { state: { tripData: values } });
+    },
+  });
 
   return (
     <Container maxWidth="md">
-      <Paper elevation={3} sx={{ p: 4, mt: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom align="center">
+      <Box sx={{ mt: 4, mb: 4 }}>
+        <Typography variant="h4" component="h1" gutterBottom>
           Plan Your Trip
         </Typography>
-        <Formik
-          initialValues={{
-            destination: '',
-            interests: [],
-            budget: 1000,
-            startDate: new Date(),
-            endDate: new Date(new Date().setDate(new Date().getDate() + 7)),
-          }}
-          validationSchema={validationSchema}
-          onSubmit={handleSubmit}
-        >
-          {({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleBlur,
-            setFieldValue,
-          }) => (
-            <Form>
-              <Box sx={{ display: 'grid', gap: 3 }}>
-                <Box>
-                  <TextField
-                    fullWidth
-                    id="destination"
-                    name="destination"
-                    label="Destination City"
-                    value={values.destination}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    error={touched.destination && Boolean(errors.destination)}
-                    helperText={touched.destination && errors.destination}
-                  />
-                </Box>
-
-                <Box>
-                  <FormControl fullWidth>
-                    <InputLabel id="interests-label">Interests</InputLabel>
-                    <Select
-                      labelId="interests-label"
-                      id="interests"
-                      name="interests"
-                      multiple
-                      value={values.interests}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      error={touched.interests && Boolean(errors.interests)}
-                      renderValue={(selected) => (
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-                          {selected.map((value) => (
-                            <Chip key={value} label={value} />
-                          ))}
-                        </Box>
-                      )}
-                    >
-                      {interests.map((interest) => (
-                        <MenuItem key={interest} value={interest}>
-                          {interest}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
-                </Box>
-
-                <Box>
-                  <Typography gutterBottom>Budget (USD)</Typography>
-                  <Slider
-                    value={values.budget}
-                    onChange={(_, value) => setFieldValue('budget', value)}
-                    valueLabelDisplay="auto"
-                    step={100}
-                    marks
-                    min={0}
-                    max={10000}
-                  />
-                </Box>
-
-                <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, gap: 2 }}>
-                  <Box>
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
-                      <DatePicker
-                        label="Start Date"
-                        value={values.startDate}
-                        onChange={(date) => setFieldValue('startDate', date)}
-                        slotProps={{
-                          textField: {
-                            fullWidth: true,
-                            error: touched.startDate && Boolean(errors.startDate),
-                            helperText: touched.startDate && errors.startDate as string,
-                          },
-                        }}
-                      />
-                    </LocalizationProvider>
-                  </Box>
-
-                  <Box>
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
-                      <DatePicker
-                        label="End Date"
-                        value={values.endDate}
-                        onChange={(date) => setFieldValue('endDate', date)}
-                        slotProps={{
-                          textField: {
-                            fullWidth: true,
-                            error: touched.endDate && Boolean(errors.endDate),
-                            helperText: touched.endDate && errors.endDate as string,
-                          },
-                        }}
-                      />
-                    </LocalizationProvider>
-                  </Box>
-                </Box>
-
-                <Box>
-                  <Button
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                  >
-                    Plan My Trip
-                  </Button>
-                </Box>
-              </Box>
-            </Form>
-          )}
-        </Formik>
-      </Paper>
+        <form onSubmit={formik.handleSubmit}>
+          <Grid container spacing={3}>
+            <Grid size={12}>
+              <TextField
+                fullWidth
+                id="destination"
+                name="destination"
+                label="Destination"
+                value={formik.values.destination}
+                onChange={formik.handleChange}
+                error={formik.touched.destination && Boolean(formik.errors.destination)}
+                helperText={formik.touched.destination && formik.errors.destination}
+              />
+            </Grid>
+            <Grid size={12}>
+              <FormControl fullWidth error={formik.touched.interests && Boolean(formik.errors.interests)}>
+                <InputLabel id="interests-label">Interests</InputLabel>
+                <Select
+                  labelId="interests-label"
+                  id="interests"
+                  name="interests"
+                  multiple
+                  value={formik.values.interests}
+                  onChange={formik.handleChange}
+                  label="Interests"
+                >
+                  {interests.map((interest) => (
+                    <MenuItem key={interest} value={interest}>
+                      {interest}
+                    </MenuItem>
+                  ))}
+                </Select>
+                {formik.touched.interests && formik.errors.interests && (
+                  <FormHelperText>{formik.errors.interests}</FormHelperText>
+                )}
+              </FormControl>
+            </Grid>
+            <Grid size={12}>
+              <Typography gutterBottom>Budget (USD)</Typography>
+              <Slider
+                value={formik.values.budget}
+                onChange={(_, value) => formik.setFieldValue('budget', value)}
+                valueLabelDisplay="auto"
+                step={100}
+                marks
+                min={0}
+                max={5000}
+              />
+            </Grid>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
+              <DatePicker
+                label="Start Date"
+                value={formik.values.startDate}
+                onChange={(date) => formik.setFieldValue('startDate', date)}
+                slotProps={{
+                  textField: {
+                    fullWidth: true,
+                    error: formik.touched.startDate && Boolean(formik.errors.startDate),
+                    helperText: formik.touched.startDate && String(formik.errors.startDate),
+                  },
+                }}
+              />
+            </Grid>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
+              <DatePicker
+                label="End Date"
+                value={formik.values.endDate}
+                onChange={(date) => formik.setFieldValue('endDate', date)}
+                slotProps={{
+                  textField: {
+                    fullWidth: true,
+                    error: formik.touched.endDate && Boolean(formik.errors.endDate),
+                    helperText: formik.touched.endDate && String(formik.errors.endDate),
+                  },
+                }}
+              />
+            </Grid>
+            <Grid size={12}>
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                fullWidth
+                size="large"
+              >
+                Plan Trip
+              </Button>
+            </Grid>
+          </Grid>
+        </form>
+      </Box>
     </Container>
   );
 };

@@ -1,20 +1,21 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFnsV3';
-import theme from './utils/theme';
+import { AuthProvider } from './contexts/AuthContext';
+import { UserProvider } from './contexts/UserContext';
+import ProtectedRoute from './components/ProtectedRoute';
 import Layout from './components/Layout/Layout';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import TripPlanner from './pages/TripPlanner';
-
-// Placeholder components - will be created later
-const MapView = () => <div>Map View   </div>;
-const TripSummary = () => <div>Trip Summary</div>;
-const UserProfile = () => <div>User Profile</div>;
+import TripSummary from './pages/TripSummary';
+import MapView from './pages/MapView';
+import UserProfile from './pages/UserProfile';
+import theme from './utils/theme';
 
 function App() {
   return (
@@ -22,17 +23,57 @@ function App() {
       <CssBaseline />
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <Router>
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<SignUp />} />
-              <Route path="/planner" element={<TripPlanner />} />
-              <Route path="/map" element={<MapView />} />
-              <Route path="/summary" element={<TripSummary />} />
-              <Route path="/profile" element={<UserProfile />} />
-            </Routes>
-          </Layout>
+          <AuthProvider>
+            <UserProvider>
+              <Layout>
+                <Routes>
+                  <Route path="/" element={<Navigate to="/dashboard" replace />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/signup" element={<SignUp />} />
+                  <Route
+                    path="/dashboard"
+                    element={
+                      <ProtectedRoute>
+                        <Dashboard />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/planner"
+                    element={
+                      <ProtectedRoute>
+                        <TripPlanner />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/map"
+                    element={
+                      <ProtectedRoute>
+                        <MapView />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/summary"
+                    element={
+                      <ProtectedRoute>
+                        <TripSummary />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/profile"
+                    element={
+                      <ProtectedRoute>
+                        <UserProfile />
+                      </ProtectedRoute>
+                    }
+                  />
+                </Routes>
+              </Layout>
+            </UserProvider>
+          </AuthProvider>
         </Router>
       </LocalizationProvider>
     </ThemeProvider>
