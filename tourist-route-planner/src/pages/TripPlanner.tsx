@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -14,14 +14,13 @@ import {
   FormControl,
   InputLabel,
   Select,
-  Chip,
-  Checkbox,
-  ListItemText,
   FormHelperText,
+  Grid,
 } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import Grid from '@mui/material/Grid';
+import LoadingOverlay from '../components/LoadingOverlay';
+import { useNotification } from '../contexts/NotificationContext';
 
 interface TripFormValues {
   destination: string;
@@ -62,6 +61,8 @@ const validationSchema = Yup.object({
 
 const TripPlanner: React.FC = () => {
   const navigate = useNavigate();
+  const { showSuccess, showError } = useNotification();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const formik = useFormik<TripFormValues>({
     initialValues: {
@@ -71,18 +72,19 @@ const TripPlanner: React.FC = () => {
       startDate: new Date(),
       endDate: new Date(new Date().setDate(new Date().getDate() + 7)),
     },
-    validationSchema: Yup.object({
-      destination: Yup.string().required('Destination is required'),
-      interests: Yup.array().min(1, 'Select at least one interest'),
-      budget: Yup.number().min(100, 'Minimum budget is 100'),
-      startDate: Yup.date().required('Start date is required'),
-      endDate: Yup.date()
-        .min(Yup.ref('startDate'), 'End date must be after start date')
-        .required('End date is required'),
-    }),
-    onSubmit: (values) => {
-      console.log('Trip values:', values);
-      navigate('/summary', { state: { tripData: values } });
+    validationSchema,
+    onSubmit: async (values) => {
+      try {
+        setIsSubmitting(true);
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        showSuccess('Trip plan created successfully!');
+        navigate('/summary', { state: { tripData: values } });
+      } catch (error) {
+        showError('Failed to create trip plan. Please try again.');
+      } finally {
+        setIsSubmitting(false);
+      }
     },
   });
 
@@ -94,7 +96,7 @@ const TripPlanner: React.FC = () => {
         </Typography>
         <form onSubmit={formik.handleSubmit}>
           <Grid container spacing={3}>
-            <Grid size={12}>
+            <Grid item xs={12}>
               <TextField
                 fullWidth
                 id="destination"
@@ -104,9 +106,10 @@ const TripPlanner: React.FC = () => {
                 onChange={formik.handleChange}
                 error={formik.touched.destination && Boolean(formik.errors.destination)}
                 helperText={formik.touched.destination && formik.errors.destination}
+                disabled={isSubmitting}
               />
             </Grid>
-            <Grid size={12}>
+            <Grid item xs={12}>
               <FormControl fullWidth error={formik.touched.interests && Boolean(formik.errors.interests)}>
                 <InputLabel id="interests-label">Interests</InputLabel>
                 <Select
@@ -117,6 +120,7 @@ const TripPlanner: React.FC = () => {
                   value={formik.values.interests}
                   onChange={formik.handleChange}
                   label="Interests"
+                  disabled={isSubmitting}
                 >
                   {interests.map((interest) => (
                     <MenuItem key={interest} value={interest}>
@@ -129,7 +133,7 @@ const TripPlanner: React.FC = () => {
                 )}
               </FormControl>
             </Grid>
-            <Grid size={12}>
+            <Grid item xs={12}>
               <Typography gutterBottom>Budget (USD)</Typography>
               <Slider
                 value={formik.values.budget}
@@ -139,13 +143,10 @@ const TripPlanner: React.FC = () => {
                 marks
                 min={0}
                 max={5000}
+                disabled={isSubmitting}
               />
             </Grid>
-            <Grid
-              size={{
-                xs: 12,
-                sm: 6
-              }}>
+            <Grid item xs={12} sm={6}>
               <DatePicker
                 label="Start Date"
                 value={formik.values.startDate}
@@ -154,16 +155,13 @@ const TripPlanner: React.FC = () => {
                   textField: {
                     fullWidth: true,
                     error: formik.touched.startDate && Boolean(formik.errors.startDate),
-                    helperText: formik.touched.startDate && String(formik.errors.startDate),
+                    helperText: (formik.touched.startDate && formik.errors.startDate) ? String(formik.errors.startDate) : '',
+                    disabled: isSubmitting
                   },
                 }}
               />
             </Grid>
-            <Grid
-              size={{
-                xs: 12,
-                sm: 6
-              }}>
+            <Grid item xs={12} sm={6}>
               <DatePicker
                 label="End Date"
                 value={formik.values.endDate}
@@ -172,25 +170,28 @@ const TripPlanner: React.FC = () => {
                   textField: {
                     fullWidth: true,
                     error: formik.touched.endDate && Boolean(formik.errors.endDate),
-                    helperText: formik.touched.endDate && String(formik.errors.endDate),
+                    helperText: (formik.touched.endDate && formik.errors.endDate) ? String(formik.errors.endDate) : '',
+                    disabled: isSubmitting
                   },
                 }}
               />
             </Grid>
-            <Grid size={12}>
+            <Grid item xs={12}>
               <Button
                 type="submit"
                 variant="contained"
                 color="primary"
                 fullWidth
                 size="large"
+                disabled={isSubmitting}
               >
-                Plan Trip
+                {isSubmitting ? 'Planning Trip...' : 'Plan Trip'}
               </Button>
             </Grid>
           </Grid>
         </form>
       </Box>
+      <LoadingOverlay open={isSubmitting} message="Creating your trip plan..." />
     </Container>
   );
 };

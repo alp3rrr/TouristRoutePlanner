@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -9,59 +9,50 @@ import {
   TextField,
   Button,
   Box,
-  Avatar,
-  IconButton,
-  FormControlLabel,
-  Switch,
-  Divider,
   CircularProgress,
   Alert,
+  Grid,
 } from '@mui/material';
-import { PhotoCamera } from '@mui/icons-material';
-import { useUser } from '../contexts/UserContext';
+import { useAuth } from '../contexts/AuthContext';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
-// Validation schema for the profile form
 const validationSchema = Yup.object({
-  name: Yup.string().required('Name is required'),
+  firstName: Yup.string().required('First name is required'),
+  lastName: Yup.string().required('Last name is required'),
   email: Yup.string().email('Invalid email address').required('Email is required'),
-  phone: Yup.string().matches(/^[0-9]{10}$/, 'Phone number must be 10 digits'),
-  bio: Yup.string().max(500, 'Bio must be less than 500 characters'),
-  preferences: Yup.object({
-    notifications: Yup.boolean(),
-    darkMode: Yup.boolean(),
-  }),
+  phoneNumber: Yup.string().matches(/^[0-9]{10}$/, 'Phone number must be 10 digits'),
+  dateOfBirth: Yup.date()
+    .required('Date of birth is required')
+    .max(new Date(), 'Date of birth cannot be in the future'),
 });
 
 const UserProfile: React.FC = () => {
   const navigate = useNavigate();
-  const { user, updateUser, updatePreferences, loading, error } = useUser();
+  const { user, loading, error } = useAuth();
+
+  const handleConfirmEmail = async () => {
+    try {
+      // TODO: Implement email confirmation API call
+      console.log('Sending confirmation email to:', user?.email);
+    } catch (err) {
+      console.error('Error sending confirmation email:', err);
+    }
+  };
 
   const formik = useFormik({
     initialValues: {
-      name: user?.name || '',
+      firstName: user?.firstName || '',
+      lastName: user?.lastName || '',
       email: user?.email || '',
-      phone: user?.phone || '',
-      bio: user?.bio || '',
-      preferences: {
-        notifications: user?.preferences?.notifications || false,
-        darkMode: user?.preferences?.darkMode || false,
-      },
+      phoneNumber: user?.phoneNumber || '',
+      dateOfBirth: user?.dateOfBirth ? new Date(user.dateOfBirth) : null,
     },
     validationSchema,
     enableReinitialize: true,
     onSubmit: async (values) => {
       try {
-        await updateUser({
-          ...user!,
-          name: values.name,
-          email: values.email,
-          phone: values.phone,
-          bio: values.bio,
-        });
-        await updatePreferences({
-          notifications: values.preferences.notifications,
-          darkMode: values.preferences.darkMode,
-        });
+        // TODO: Implement profile update API call
+        console.log('Profile update:', values);
         navigate('/dashboard');
       } catch (err) {
         console.error('Error updating profile:', err);
@@ -92,120 +83,100 @@ const UserProfile: React.FC = () => {
           User Profile
         </Typography>
 
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mb: 4 }}>
-          <Avatar
-            sx={{ width: 100, height: 100, mb: 2 }}
-            alt={formik.values.name}
-            src={user?.avatar}
-          />
-          <IconButton color="primary" component="label">
-            <input hidden accept="image/*" type="file" />
-            <PhotoCamera />
-          </IconButton>
-        </Box>
-
         <form onSubmit={formik.handleSubmit}>
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 3 }}>
-            <Box sx={{ flex: '1 1 300px' }}>
+          <Grid container spacing={3}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 fullWidth
-                id="name"
-                name="name"
-                label="Full Name"
-                value={formik.values.name}
+                id="firstName"
+                name="firstName"
+                label="First Name"
+                value={formik.values.firstName}
                 onChange={formik.handleChange}
-                error={formik.touched.name && Boolean(formik.errors.name)}
-                helperText={formik.touched.name && formik.errors.name}
+                error={formik.touched.firstName && Boolean(formik.errors.firstName)}
+                helperText={formik.touched.firstName && formik.errors.firstName}
               />
-            </Box>
-            <Box sx={{ flex: '1 1 300px' }}>
+            </Grid>
+            <Grid item xs={12} sm={6}>
               <TextField
                 fullWidth
-                id="email"
-                name="email"
-                label="Email"
-                value={formik.values.email}
+                id="lastName"
+                name="lastName"
+                label="Last Name"
+                value={formik.values.lastName}
                 onChange={formik.handleChange}
-                error={formik.touched.email && Boolean(formik.errors.email)}
-                helperText={formik.touched.email && formik.errors.email}
+                error={formik.touched.lastName && Boolean(formik.errors.lastName)}
+                helperText={formik.touched.lastName && formik.errors.lastName}
               />
-            </Box>
-            <Box sx={{ flex: '1 1 300px' }}>
+            </Grid>
+            <Grid item xs={12}>
+              <Box sx={{ display: 'flex', gap: 2, alignItems: 'flex-start' }}>
+                <TextField
+                  fullWidth
+                  id="email"
+                  name="email"
+                  label="Email"
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  error={formik.touched.email && Boolean(formik.errors.email)}
+                  helperText={formik.touched.email && formik.errors.email}
+                  disabled={user?.emailConfirmed}
+                />
+                {!user?.emailConfirmed && (
+                  <Button
+                    variant="outlined"
+                    onClick={handleConfirmEmail}
+                    sx={{ minWidth: '150px' }}
+                  >
+                    Confirm Email
+                  </Button>
+                )}
+              </Box>
+            </Grid>
+            <Grid item xs={12}>
               <TextField
                 fullWidth
-                id="phone"
-                name="phone"
+                id="phoneNumber"
+                name="phoneNumber"
                 label="Phone Number"
-                value={formik.values.phone}
+                value={formik.values.phoneNumber}
                 onChange={formik.handleChange}
-                error={formik.touched.phone && Boolean(formik.errors.phone)}
-                helperText={formik.touched.phone && formik.errors.phone}
+                error={formik.touched.phoneNumber && Boolean(formik.errors.phoneNumber)}
+                helperText={formik.touched.phoneNumber && formik.errors.phoneNumber}
               />
-            </Box>
-            <Box sx={{ flex: '1 1 100%' }}>
-              <TextField
-                fullWidth
-                id="bio"
-                name="bio"
-                label="Bio"
-                multiline
-                rows={4}
-                value={formik.values.bio}
-                onChange={formik.handleChange}
-                error={formik.touched.bio && Boolean(formik.errors.bio)}
-                helperText={formik.touched.bio && formik.errors.bio}
+            </Grid>
+            <Grid item xs={12}>
+              <DatePicker
+                label="Date of Birth"
+                value={formik.values.dateOfBirth}
+                onChange={(date) => formik.setFieldValue('dateOfBirth', date)}
+                slotProps={{
+                  textField: {
+                    fullWidth: true,
+                    error: formik.touched.dateOfBirth && Boolean(formik.errors.dateOfBirth),
+                    helperText: formik.touched.dateOfBirth && formik.errors.dateOfBirth,
+                  },
+                }}
               />
-            </Box>
-          </Box>
-
-          <Divider sx={{ my: 4 }} />
-
-          <Typography variant="h6" gutterBottom>
-            Preferences
-          </Typography>
-
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-            <FormControlLabel
-              control={
-                <Switch
-                  checked={formik.values.preferences.notifications}
-                  onChange={(e) =>
-                    formik.setFieldValue('preferences.notifications', e.target.checked)
-                  }
-                />
-              }
-              label="Enable Notifications"
-            />
-            <FormControlLabel
-              control={
-                <Switch
-                  checked={formik.values.preferences.darkMode}
-                  onChange={(e) =>
-                    formik.setFieldValue('preferences.darkMode', e.target.checked)
-                  }
-                />
-              }
-              label="Dark Mode"
-            />
-          </Box>
-
-          <Box sx={{ mt: 4, display: 'flex', justifyContent: 'space-between' }}>
-            <Button
-              variant="outlined"
-              color="primary"
-              onClick={() => navigate('/dashboard')}
-            >
-              Cancel
-            </Button>
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              disabled={!formik.isValid || !formik.dirty}
-            >
-              Save Changes
-            </Button>
-          </Box>
+            </Grid>
+            <Grid item xs={12}>
+              <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2 }}>
+                <Button
+                  variant="outlined"
+                  onClick={() => navigate('/dashboard')}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                >
+                  Save Changes
+                </Button>
+              </Box>
+            </Grid>
+          </Grid>
         </form>
       </Paper>
     </Container>

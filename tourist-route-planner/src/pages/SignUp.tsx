@@ -77,11 +77,7 @@ const SignUp: React.FC = () => {
         )}
         <Box component="form" onSubmit={formik.handleSubmit} sx={{ mt: 1 }}>
           <Grid container spacing={2}>
-            <Grid
-              size={{
-                xs: 12,
-                sm: 6
-              }}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 fullWidth
                 id="firstName"
@@ -94,11 +90,7 @@ const SignUp: React.FC = () => {
                 disabled={loading}
               />
             </Grid>
-            <Grid
-              size={{
-                xs: 12,
-                sm: 6
-              }}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 fullWidth
                 id="lastName"
@@ -111,7 +103,7 @@ const SignUp: React.FC = () => {
                 disabled={loading}
               />
             </Grid>
-            <Grid size={12}>
+            <Grid item xs={12}>
               <TextField
                 fullWidth
                 id="email"
@@ -125,7 +117,7 @@ const SignUp: React.FC = () => {
                 disabled={loading}
               />
             </Grid>
-            <Grid size={12}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 fullWidth
                 id="password"
@@ -139,7 +131,7 @@ const SignUp: React.FC = () => {
                 disabled={loading}
               />
             </Grid>
-            <Grid size={12}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 fullWidth
                 id="confirmPassword"
@@ -153,7 +145,7 @@ const SignUp: React.FC = () => {
                 disabled={loading}
               />
             </Grid>
-            <Grid size={12}>
+            <Grid item xs={12} sm={6}>
               <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <DatePicker
                   label="Date of Birth"

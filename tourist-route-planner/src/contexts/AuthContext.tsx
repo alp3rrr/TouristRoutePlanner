@@ -7,6 +7,9 @@ interface User {
   firstName: string;
   lastName: string;
   email: string;
+  emailConfirmed: boolean;
+  phoneNumber: string;
+  dateOfBirth: string;
 }
 
 interface AuthContextType {
@@ -31,17 +34,22 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const isAuthenticated = !!user;
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    // Check if user is already logged in
     const token = localStorage.getItem('token');
-    if (token) {
-      // TODO: Implement token validation with backend
+
+    if (!token) {
+      console.log("no token");
       setLoading(false);
-    } else {
-      setLoading(false);
+      setIsAuthenticated(false);
+      return;
     }
+    
+    console.log("token found");
+    // If we have a token, we'll consider the user authenticated
+    setIsAuthenticated(true);
+    setLoading(false);
   }, []);
 
   const login = async (username: string, password: string) => {
@@ -58,8 +66,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         username: username,
         firstName: response.data.firstName,
         lastName: response.data.lastName,
-        email: username
+        email: username,
+        emailConfirmed: response.data.emailConfirmed,
+        phoneNumber: response.data.phoneNumber,
+        dateOfBirth: response.data.dateOfBirth
       });
+      setIsAuthenticated(true);
     } catch (err: any) {
       setError(err.response?.data?.message || 'Login failed, username or password is incorrect.');
       throw err;
@@ -71,6 +83,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const logout = () => {
     localStorage.removeItem('token');
     setUser(null);
+    setIsAuthenticated(false);
   };
 
   const register = async (data: {

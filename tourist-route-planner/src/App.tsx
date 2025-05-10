@@ -6,6 +6,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFnsV3';
 import { AuthProvider } from './contexts/AuthContext';
 import { UserProvider } from './contexts/UserContext';
+import { NotificationProvider } from './contexts/NotificationContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Layout from './components/Layout/Layout';
 import Dashboard from './pages/Dashboard';
@@ -23,57 +24,59 @@ function App() {
       <CssBaseline />
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <Router>
-          <AuthProvider>
-            <UserProvider>
-              <Layout>
-                <Routes>
-                  <Route path="/" element={<Navigate to="/dashboard" replace />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/signup" element={<SignUp />} />
-                  <Route
-                    path="/dashboard"
-                    element={
-                      <ProtectedRoute>
-                        <Dashboard />
-                      </ProtectedRoute>
-                    }
-                  />
-                  <Route
-                    path="/planner"
-                    element={
-                      <ProtectedRoute>
-                        <TripPlanner />
-                      </ProtectedRoute>
-                    }
-                  />
-                  <Route
-                    path="/map"
-                    element={
-                      <ProtectedRoute>
-                        <MapView />
-                      </ProtectedRoute>
-                    }
-                  />
-                  <Route
-                    path="/summary"
-                    element={
-                      <ProtectedRoute>
-                        <TripSummary />
-                      </ProtectedRoute>
-                    }
-                  />
-                  <Route
-                    path="/profile"
-                    element={
-                      <ProtectedRoute>
-                        <UserProfile />
-                      </ProtectedRoute>
-                    }
-                  />
-                </Routes>
-              </Layout>
-            </UserProvider>
-          </AuthProvider>
+          <NotificationProvider>
+            <AuthProvider>
+              <UserProvider>
+                <Layout>
+                  <Routes>
+                    <Route path="/" element={<Navigate to="/dashboard" replace />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<SignUp />} />
+                    <Route
+                      path="/dashboard"
+                      element={
+                        <ProtectedRoute>
+                          <Dashboard />
+                        </ProtectedRoute>
+                      }
+                    />
+                    <Route
+                      path="/planner"
+                      element={
+                        <ProtectedRoute>
+                          <TripPlanner />
+                        </ProtectedRoute>
+                      }
+                    />
+                    <Route
+                      path="/map"
+                      element={
+                        <ProtectedRoute>
+                          <MapView />
+                        </ProtectedRoute>
+                      }
+                    />
+                    <Route
+                      path="/summary"
+                      element={
+                        <ProtectedRoute>
+                          <TripSummary />
+                        </ProtectedRoute>
+                      }
+                    />
+                    <Route
+                      path="/profile"
+                      element={
+                        <ProtectedRoute>
+                          <UserProfile />
+                        </ProtectedRoute>
+                      }
+                    />
+                  </Routes>
+                </Layout>
+              </UserProvider>
+            </AuthProvider>
+          </NotificationProvider>
         </Router>
       </LocalizationProvider>
     </ThemeProvider>

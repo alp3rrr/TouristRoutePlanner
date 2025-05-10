@@ -87,8 +87,12 @@ const TripSummary: React.FC = () => {
   const tripData = formTripData ? {
     ...mockTripData,
     destination: formTripData.destination,
-    startDate: formTripData.startDate.toISOString().split('T')[0],
-    endDate: formTripData.endDate.toISOString().split('T')[0],
+    startDate: formTripData.startDate instanceof Date 
+      ? formTripData.startDate.toISOString().split('T')[0]
+      : formTripData.startDate,
+    endDate: formTripData.endDate instanceof Date 
+      ? formTripData.endDate.toISOString().split('T')[0]
+      : formTripData.endDate,
     budget: formTripData.budget,
     interests: formTripData.interests,
   } : mockTripData;

@@ -11,6 +11,7 @@ import {
   Menu,
   MenuItem,
   Avatar,
+  CircularProgress,
 } from '@mui/material';
 import { useAuth } from '../../contexts/AuthContext';
 
@@ -19,7 +20,7 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const { user, isAuthenticated, logout } = useAuth();
+  const { user, isAuthenticated, logout, loading } = useAuth();
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -35,6 +36,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     handleClose();
     logout();
   };
+
+  if (loading) {
+    return (
+      <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>

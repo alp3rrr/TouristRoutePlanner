@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { GoogleMap, useLoadScript, Marker, DirectionsRenderer, InfoWindow } from '@react-google-maps/api';
-import { Box, Typography, Paper, CircularProgress, Alert, List, ListItem, ListItemIcon, ListItemText, Divider, Grid } from '@mui/material';
-import { Place, ArrowForward } from '@mui/icons-material';
-import { useLocation } from 'react-router-dom';
+import { Box, Typography, Paper, CircularProgress, Alert, List, ListItem, ListItemIcon, ListItemText, Divider, Grid, Button } from '@mui/material';
+import { Place, ArrowForward, ArrowBack } from '@mui/icons-material';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 interface Activity {
   time: string;
@@ -30,6 +30,7 @@ const libraries: ("places")[] = ['places'];
 
 const MapView: React.FC = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const tripData = location.state?.tripData as TripData | undefined;
   
   const [map, setMap] = useState<google.maps.Map | null>(null);
@@ -142,112 +143,126 @@ const MapView: React.FC = () => {
       {!isLoaded ? (
         <CircularProgress />
       ) : (
-        <Box sx={{ display: 'flex', flexDirection: 'row-reverse', gap: 3 }}>
-          <Box sx={{ flex: '3 1 auto', minWidth: 0 }}>
-            <Paper elevation={3} sx={{ height: '80vh', position: 'relative' }}>
-              {/* Map container */}
-              <GoogleMap
-                mapContainerStyle={{ width: '100%', height: '100%' }}
-                zoom={13}
-                center={{ lat: 41.0082, lng: 28.9784 }} // Default to Istanbul
-                options={{
-                  zoomControl: true,
-                  streetViewControl: false,
-                  mapTypeControl: false,
-                  fullscreenControl: true,
-                }}
-                onLoad={onLoad}
-                onUnmount={onUnmount}
-              >
-                {directions && (
-                  <DirectionsRenderer 
-                    directions={directions}
-                    options={{
-                      suppressMarkers: true, // This hides the default A, B, C markers
-                      polylineOptions: {
-                        strokeColor: '#2196F3', // Material-UI primary blue
-                        strokeWeight: 5,
-                      }
-                    }}
-                  />
-                )}
-                {markers.map((marker, index) => (
-                  <Marker
-                    key={index}
-                    position={marker.position}
-                    label={{
-                      text: `${index + 1}`,
-                      color: '#ffffff',
-                      fontWeight: 'bold'
-                    }}
-                    onClick={() => setSelectedMarker(index)}
-                  >
-                    {selectedMarker === index && (
-                      <InfoWindow
-                        position={marker.position}
-                        onCloseClick={() => setSelectedMarker(null)}
-                      >
-                        <div>
-                          <Typography variant="subtitle2">
-                            {`${index + 1}. ${marker.label.split('. ')[1]}`}
-                          </Typography>
-                          <Typography variant="body2">
-                            {tripData?.itinerary.flatMap(day => 
-                              day.activities
-                            )[index]?.time}
-                          </Typography>
-                        </div>
-                      </InfoWindow>
-                    )}
-                  </Marker>
-                ))}
-              </GoogleMap>
-            </Paper>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Button
+              variant="outlined"
+              startIcon={<ArrowBack />}
+              onClick={() => navigate('/summary', { state: { tripData } })}
+            >
+              Back to Summary
+            </Button>
+            <Typography variant="h5">
+              Trip Route Map
+            </Typography>
           </Box>
-          <Box sx={{ flex: '1 1 300px', minWidth: '300px', maxWidth: '400px' }}>
-            {/* Route details panel */}
-            <Paper elevation={3} sx={{ p: 2 }}>
-              <Typography variant="h5" gutterBottom>
-                Trip Route
-              </Typography>
-              {tripData && (
-                <>
-                  <Typography variant="body1" gutterBottom>
-                    Planning route for: {tripData.destination}
-                  </Typography>
-                  <List>
-                    {markers.map((marker, index) => (
-                      <React.Fragment key={index}>
-                        <ListItem>
-                          <ListItemIcon>
-                            <Place />
-                          </ListItemIcon>
-                          <ListItemText 
-                            primary={`${index + 1}. ${marker.label.split('. ')[1]}`}
-                            secondary={tripData.itinerary.flatMap(day => 
-                              day.activities
-                            )[index]?.time}
-                          />
-                        </ListItem>
-                        {index < markers.length - 1 && (
+          <Box sx={{ display: 'flex', flexDirection: 'row-reverse', gap: 3 }}>
+            <Box sx={{ flex: '3 1 auto', minWidth: 0 }}>
+              <Paper elevation={3} sx={{ height: '80vh', position: 'relative' }}>
+                {/* Map container */}
+                <GoogleMap
+                  mapContainerStyle={{ width: '100%', height: '100%' }}
+                  zoom={13}
+                  center={{ lat: 41.0082, lng: 28.9784 }} // Default to Istanbul
+                  options={{
+                    zoomControl: true,
+                    streetViewControl: false,
+                    mapTypeControl: false,
+                    fullscreenControl: true,
+                  }}
+                  onLoad={onLoad}
+                  onUnmount={onUnmount}
+                >
+                  {directions && (
+                    <DirectionsRenderer 
+                      directions={directions}
+                      options={{
+                        suppressMarkers: true, // This hides the default A, B, C markers
+                        polylineOptions: {
+                          strokeColor: '#2196F3', // Material-UI primary blue
+                          strokeWeight: 5,
+                        }
+                      }}
+                    />
+                  )}
+                  {markers.map((marker, index) => (
+                    <Marker
+                      key={index}
+                      position={marker.position}
+                      label={{
+                        text: `${index + 1}`,
+                        color: '#ffffff',
+                        fontWeight: 'bold'
+                      }}
+                      onClick={() => setSelectedMarker(index)}
+                    >
+                      {selectedMarker === index && (
+                        <InfoWindow
+                          position={marker.position}
+                          onCloseClick={() => setSelectedMarker(null)}
+                        >
+                          <div>
+                            <Typography variant="subtitle2">
+                              {`${index + 1}. ${marker.label.split('. ')[1]}`}
+                            </Typography>
+                            <Typography variant="body2">
+                              {tripData?.itinerary.flatMap(day => 
+                                day.activities
+                              )[index]?.time}
+                            </Typography>
+                          </div>
+                        </InfoWindow>
+                      )}
+                    </Marker>
+                  ))}
+                </GoogleMap>
+              </Paper>
+            </Box>
+            <Box sx={{ flex: '1 1 300px', minWidth: '300px', maxWidth: '400px' }}>
+              {/* Route details panel */}
+              <Paper elevation={3} sx={{ p: 2 }}>
+                <Typography variant="h5" gutterBottom>
+                  Trip Route
+                </Typography>
+                {tripData && (
+                  <>
+                    <Typography variant="body1" gutterBottom>
+                      Planning route for: {tripData.destination}
+                    </Typography>
+                    <List>
+                      {markers.map((marker, index) => (
+                        <React.Fragment key={index}>
                           <ListItem>
                             <ListItemIcon>
-                              <ArrowForward />
+                              <Place />
                             </ListItemIcon>
-                            <ListItemText secondary="Walking" />
+                            <ListItemText 
+                              primary={`${index + 1}. ${marker.label.split('. ')[1]}`}
+                              secondary={tripData.itinerary.flatMap(day => 
+                                day.activities
+                              )[index]?.time}
+                            />
                           </ListItem>
-                        )}
-                      </React.Fragment>
-                    ))}
-                  </List>
-                </>
-              )}
-              {error && (
-                <Alert severity="error" sx={{ mt: 2 }}>
-                  {error}
-                </Alert>
-              )}
-            </Paper>
+                          {index < markers.length - 1 && (
+                            <ListItem>
+                              <ListItemIcon>
+                                <ArrowForward />
+                              </ListItemIcon>
+                              <ListItemText secondary="Walking" />
+                            </ListItem>
+                          )}
+                        </React.Fragment>
+                      ))}
+                    </List>
+                  </>
+                )}
+                {error && (
+                  <Alert severity="error" sx={{ mt: 2 }}>
+                    {error}
+                  </Alert>
+                )}
+              </Paper>
+            </Box>
           </Box>
         </Box>
       )}
