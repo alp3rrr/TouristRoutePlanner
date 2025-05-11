@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate, Link as RouterLink } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
@@ -12,27 +12,31 @@ import {
   Paper,
   Alert,
 } from '@mui/material';
-import { useAuth } from '../contexts/AuthContext';
+import { authApi } from '../services/api';
 
 const validationSchema = Yup.object({
   email: Yup.string()
     .email('Invalid email address')
     .required('Email is required'),
-  password: Yup.string()
-    .min(8, 'Password must be at least 8 characters')
-    .required('Password is required'),
 });
 
-const Login: React.FC = () => {
-  const { login, error, loading } = useAuth();
+const ForgotPassword: React.FC = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
 
-  const handleSubmit = async (values: { email: string; password: string }) => {
+  const handleSubmit = async (values: { email: string }) => {
     try {
-      await login(values.email, values.password);
-      navigate('/dashboard');
-    } catch (error) {
-      // Error is handled by the AuthContext
+      setLoading(true);
+      setError(null);
+      setSuccess(null);
+      await authApi.forgotPassword(values.email);
+      setSuccess('If your email is registered, you will receive a password reset code.');
+    } catch (err: any) {
+      setError(err.response?.data?.message || 'An error occurred. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -40,15 +44,20 @@ const Login: React.FC = () => {
     <Container maxWidth="sm">
       <Paper elevation={3} sx={{ p: 4, mt: 4 }}>
         <Typography variant="h4" component="h1" gutterBottom align="center">
-          Login
+          Forgot Password
         </Typography>
         {error && (
           <Alert severity="error" sx={{ mb: 2 }}>
             {error}
           </Alert>
         )}
+        {success && (
+          <Alert severity="success" sx={{ mb: 2 }}>
+            {success}
+          </Alert>
+        )}
         <Formik
-          initialValues={{ email: '', password: '' }}
+          initialValues={{ email: '' }}
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
         >
@@ -67,20 +76,6 @@ const Login: React.FC = () => {
                 margin="normal"
                 disabled={loading}
               />
-              <TextField
-                fullWidth
-                id="password"
-                name="password"
-                label="Password"
-                type="password"
-                value={values.password}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                error={touched.password && Boolean(errors.password)}
-                helperText={touched.password && errors.password}
-                margin="normal"
-                disabled={loading}
-              />
               <Button
                 type="submit"
                 fullWidth
@@ -89,14 +84,11 @@ const Login: React.FC = () => {
                 sx={{ mt: 3, mb: 2 }}
                 disabled={loading}
               >
-                {loading ? 'Logging in...' : 'Login'}
+                {loading ? 'Sending...' : 'Send Reset Code'}
               </Button>
               <Box textAlign="center">
-                <Link component={RouterLink} to="/forgot-password" variant="body2" sx={{ mr: 2 }}>
-                  Forgot Password?
-                </Link>
-                <Link component={RouterLink} to="/signup" variant="body2">
-                  Don't have an account? Sign Up
+                <Link component={RouterLink} to="/login" variant="body2">
+                  Back to Login
                 </Link>
               </Box>
             </Form>
@@ -107,4 +99,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login; 
+export default ForgotPassword; 

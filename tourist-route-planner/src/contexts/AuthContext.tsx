@@ -26,6 +26,7 @@ interface AuthContextType {
     lastName: string;
     dateOfBirth: string;
   }) => Promise<void>;
+  setUser: (user: User) => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -40,16 +41,27 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const token = localStorage.getItem('token');
 
     if (!token) {
-      console.log("no token");
       setLoading(false);
       setIsAuthenticated(false);
       return;
     }
     
-    console.log("token found");
-    // If we have a token, we'll consider the user authenticated
-    setIsAuthenticated(true);
-    setLoading(false);
+
+    const fetchProfile = async () => {
+      try {
+        const profileResponse = await authApi.getProfile();
+        setUser(profileResponse.data);
+        setIsAuthenticated(true);
+      } catch (error) {
+        console.error("Failed to fetch profile", error);
+        setIsAuthenticated(false);
+        localStorage.removeItem('token'); 
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    fetchProfile();
   }, []);
 
   const login = async (username: string, password: string) => {
@@ -60,17 +72,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const { jwtToken } = response.data;
       localStorage.setItem('token', jwtToken);
       
-      // Set user data from the response
-      setUser({
-        id: response.data.userId,
-        username: username,
-        firstName: response.data.firstName,
-        lastName: response.data.lastName,
-        email: username,
-        emailConfirmed: response.data.emailConfirmed,
-        phoneNumber: response.data.phoneNumber,
-        dateOfBirth: response.data.dateOfBirth
-      });
+      // Fetch user profile after successful login
+      const profileResponse = await authApi.getProfile();
+      setUser(profileResponse.data);
       setIsAuthenticated(true);
     } catch (err: any) {
       setError(err.response?.data?.message || 'Login failed, username or password is incorrect.');
@@ -106,7 +110,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, error, isAuthenticated, login, logout, register }}>
+    <AuthContext.Provider value={{ user, loading, error, isAuthenticated, login, logout, register, setUser }}>
       {children}
     </AuthContext.Provider>
   );

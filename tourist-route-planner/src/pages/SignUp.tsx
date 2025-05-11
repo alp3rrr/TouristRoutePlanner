@@ -55,7 +55,7 @@ const SignUp: React.FC = () => {
           password: values.password,
           firstName: values.firstName,
           lastName: values.lastName,
-          dateOfBirth: values.dateOfBirth?.toISOString() || '',
+          dateOfBirth: values.dateOfBirth?.toISOString().split('T')[0] || '',
         });
         navigate('/login');
       } catch (err) {
@@ -145,7 +145,7 @@ const SignUp: React.FC = () => {
                 disabled={loading}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <DatePicker
                   label="Date of Birth"

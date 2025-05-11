@@ -54,6 +54,15 @@ export const authApi = {
   
   confirmEmail: (data: { email: string; token: string }) => 
     api.post('/api/Auth/ConfirmEmail', data),
+
+  getProfile: () => api.get('/api/Auth/Profile'),
+
+  updateProfile: (data: {
+    firstName: string;
+    lastName: string;
+    dateOfBirth: string;
+    phoneNumber?: string;
+  }) => api.put('/api/Auth/Profile', data),
 };
 
 export const placesApi = {

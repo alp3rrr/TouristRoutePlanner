@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -12,15 +12,15 @@ import {
   CircularProgress,
   Alert,
   Grid,
+  Avatar,
 } from '@mui/material';
 import { useAuth } from '../contexts/AuthContext';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { authApi } from '../services/api';
 
 const validationSchema = Yup.object({
   firstName: Yup.string().required('First name is required'),
   lastName: Yup.string().required('Last name is required'),
-  email: Yup.string().email('Invalid email address').required('Email is required'),
-  phoneNumber: Yup.string().matches(/^[0-9]{10}$/, 'Phone number must be 10 digits'),
   dateOfBirth: Yup.date()
     .required('Date of birth is required')
     .max(new Date(), 'Date of birth cannot be in the future'),
@@ -28,34 +28,50 @@ const validationSchema = Yup.object({
 
 const UserProfile: React.FC = () => {
   const navigate = useNavigate();
-  const { user, loading, error } = useAuth();
-
-  const handleConfirmEmail = async () => {
-    try {
-      // TODO: Implement email confirmation API call
-      console.log('Sending confirmation email to:', user?.email);
-    } catch (err) {
-      console.error('Error sending confirmation email:', err);
-    }
-  };
+  const { user, loading, error, setUser } = useAuth();
+  const [updateError, setUpdateError] = useState<string | null>(null);
+  const [updateSuccess, setUpdateSuccess] = useState<string | null>(null);
 
   const formik = useFormik({
     initialValues: {
       firstName: user?.firstName || '',
       lastName: user?.lastName || '',
-      email: user?.email || '',
-      phoneNumber: user?.phoneNumber || '',
       dateOfBirth: user?.dateOfBirth ? new Date(user.dateOfBirth) : null,
     },
     validationSchema,
     enableReinitialize: true,
     onSubmit: async (values) => {
+      setUpdateError(null);
+      setUpdateSuccess(null);
+      const noChange =
+        values.firstName === user?.firstName &&
+        values.lastName === user?.lastName &&
+        (user?.dateOfBirth
+          ? values.dateOfBirth?.toISOString().split('T')[0] === user.dateOfBirth
+          : !values.dateOfBirth);
+      if (noChange) {
+        setUpdateSuccess('No changes to save.');
+        return;
+      }
       try {
-        // TODO: Implement profile update API call
-        console.log('Profile update:', values);
-        navigate('/dashboard');
-      } catch (err) {
-        console.error('Error updating profile:', err);
+        const response = await authApi.updateProfile({
+          firstName: values.firstName,
+          lastName: values.lastName,
+          dateOfBirth: values.dateOfBirth?.toISOString().split('T')[0] || '',
+        });
+        if (response.data && response.data.firstName) {
+          setUser(response.data);
+        } else {
+          setUser({
+            ...user!,
+            firstName: values.firstName,
+            lastName: values.lastName,
+            dateOfBirth: values.dateOfBirth?.toISOString().split('T')[0] || '',
+          });
+        }
+        setUpdateSuccess('Profile updated successfully');
+      } catch (err: any) {
+        setUpdateError(err.response?.data || 'Failed to update profile');
       }
     },
   });
@@ -82,7 +98,21 @@ const UserProfile: React.FC = () => {
         <Typography variant="h4" gutterBottom>
           User Profile
         </Typography>
-
+        <Box display="flex" justifyContent="center" mb={3}>
+          <Avatar sx={{ width: 64, height: 64, fontSize: 32 }}>
+            {formik.values.firstName?.[0] || 'U'}
+          </Avatar>
+        </Box>
+        {updateError && (
+          <Alert severity="error" sx={{ mb: 2 }}>
+            {updateError}
+          </Alert>
+        )}
+        {updateSuccess && (
+          <Alert severity="success" sx={{ mb: 2 }}>
+            {updateSuccess}
+          </Alert>
+        )}
         <form onSubmit={formik.handleSubmit}>
           <Grid container spacing={3}>
             <Grid item xs={12} sm={6}>
@@ -107,42 +137,6 @@ const UserProfile: React.FC = () => {
                 onChange={formik.handleChange}
                 error={formik.touched.lastName && Boolean(formik.errors.lastName)}
                 helperText={formik.touched.lastName && formik.errors.lastName}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Box sx={{ display: 'flex', gap: 2, alignItems: 'flex-start' }}>
-                <TextField
-                  fullWidth
-                  id="email"
-                  name="email"
-                  label="Email"
-                  value={formik.values.email}
-                  onChange={formik.handleChange}
-                  error={formik.touched.email && Boolean(formik.errors.email)}
-                  helperText={formik.touched.email && formik.errors.email}
-                  disabled={user?.emailConfirmed}
-                />
-                {!user?.emailConfirmed && (
-                  <Button
-                    variant="outlined"
-                    onClick={handleConfirmEmail}
-                    sx={{ minWidth: '150px' }}
-                  >
-                    Confirm Email
-                  </Button>
-                )}
-              </Box>
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                id="phoneNumber"
-                name="phoneNumber"
-                label="Phone Number"
-                value={formik.values.phoneNumber}
-                onChange={formik.handleChange}
-                error={formik.touched.phoneNumber && Boolean(formik.errors.phoneNumber)}
-                helperText={formik.touched.phoneNumber && formik.errors.phoneNumber}
               />
             </Grid>
             <Grid item xs={12}>

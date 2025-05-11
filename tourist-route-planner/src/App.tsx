@@ -16,6 +16,9 @@ import TripPlanner from './pages/TripPlanner';
 import TripSummary from './pages/TripSummary';
 import MapView from './pages/MapView';
 import UserProfile from './pages/UserProfile';
+import EmailConfirmation from './pages/EmailConfirmation';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
 import theme from './utils/theme';
 
 function App() {
@@ -32,6 +35,9 @@ function App() {
                     <Route path="/" element={<Navigate to="/dashboard" replace />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<SignUp />} />
+                    <Route path="/confirm-email" element={<EmailConfirmation />} />
+                    <Route path="/forgot-password" element={<ForgotPassword />} />
+                    <Route path="/reset-password" element={<ResetPassword />} />
                     <Route
                       path="/dashboard"
                       element={
