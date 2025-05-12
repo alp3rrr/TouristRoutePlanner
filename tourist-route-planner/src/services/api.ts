@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'https://localhost:7077',
+  baseURL: process.env.REACT_APP_API_URL || 'https://app-touristrouteplanner-dev-gwbsfgb7abdfb9ex.germanywestcentral-01.azurewebsites.net',
   headers: {
     'Content-Type': 'application/json',
   },

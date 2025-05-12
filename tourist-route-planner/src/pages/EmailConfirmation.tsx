@@ -21,18 +21,18 @@ const EmailConfirmation: React.FC = () => {
     calledRef.current = true;
 
     const email = searchParams.get('email');
-    const token = searchParams.get('token');
-    if (!email || !token) {
+    const code = searchParams.get('code');
+    if (!email || !code) {
       setStatus('error');
       setMessage('Invalid confirmation link.');
       return;
     }
 
-    authApi.confirmEmail({ email, token })
+    authApi.confirmEmail({ email, token: code })
       .then(() => {
         setStatus('success');
-        setMessage('Email confirmed! Redirecting to dashboard...');
-        setTimeout(() => navigate('/dashboard'), 2000);
+        setMessage('Email confirmed! Redirecting to login page...');
+        setTimeout(() => navigate('/login'), 2000);
       })
       .catch((err) => {
         setStatus('error');

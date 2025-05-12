@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -37,6 +37,7 @@ const validationSchema = Yup.object({
 const SignUp: React.FC = () => {
   const navigate = useNavigate();
   const { register, loading, error } = useAuth();
+  const [success, setSuccess] = useState<string | null>(null);
 
   const formik = useFormik({
     initialValues: {
@@ -57,7 +58,8 @@ const SignUp: React.FC = () => {
           lastName: values.lastName,
           dateOfBirth: values.dateOfBirth?.toISOString().split('T')[0] || '',
         });
-        navigate('/login');
+        setSuccess('Registration successful! Please check your email to confirm your account. Redirecting to login...');
+        setTimeout(() => navigate('/login'), 3000);
       } catch (err) {
         // Error is handled by the AuthContext
       }
@@ -75,6 +77,11 @@ const SignUp: React.FC = () => {
             {error}
           </Alert>
         )}
+        {success && (
+          <Alert severity="success" sx={{ mb: 2 }}>
+            {success}
+          </Alert>
+        )}
         <Box component="form" onSubmit={formik.handleSubmit} sx={{ mt: 1 }}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
@@ -87,7 +94,7 @@ const SignUp: React.FC = () => {
                 onChange={formik.handleChange}
                 error={formik.touched.firstName && Boolean(formik.errors.firstName)}
                 helperText={formik.touched.firstName && formik.errors.firstName}
-                disabled={loading}
+                disabled={loading || !!success}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -100,7 +107,7 @@ const SignUp: React.FC = () => {
                 onChange={formik.handleChange}
                 error={formik.touched.lastName && Boolean(formik.errors.lastName)}
                 helperText={formik.touched.lastName && formik.errors.lastName}
-                disabled={loading}
+                disabled={loading || !!success}
               />
             </Grid>
             <Grid item xs={12}>
@@ -114,7 +121,7 @@ const SignUp: React.FC = () => {
                 onChange={formik.handleChange}
                 error={formik.touched.email && Boolean(formik.errors.email)}
                 helperText={formik.touched.email && formik.errors.email}
-                disabled={loading}
+                disabled={loading || !!success}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -128,7 +135,7 @@ const SignUp: React.FC = () => {
                 onChange={formik.handleChange}
                 error={formik.touched.password && Boolean(formik.errors.password)}
                 helperText={formik.touched.password && formik.errors.password}
-                disabled={loading}
+                disabled={loading || !!success}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -142,7 +149,7 @@ const SignUp: React.FC = () => {
                 onChange={formik.handleChange}
                 error={formik.touched.confirmPassword && Boolean(formik.errors.confirmPassword)}
                 helperText={formik.touched.confirmPassword && formik.errors.confirmPassword}
-                disabled={loading}
+                disabled={loading || !!success}
               />
             </Grid>
             <Grid item xs={12}>
@@ -156,6 +163,7 @@ const SignUp: React.FC = () => {
                       fullWidth: true,
                       error: formik.touched.dateOfBirth && Boolean(formik.errors.dateOfBirth),
                       helperText: formik.touched.dateOfBirth && formik.errors.dateOfBirth,
+                      disabled: loading || !!success,
                     },
                   }}
                 />
@@ -167,7 +175,7 @@ const SignUp: React.FC = () => {
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
-            disabled={loading}
+            disabled={loading || !!success}
           >
             {loading ? 'Signing Up...' : 'Sign Up'}
           </Button>
@@ -175,7 +183,7 @@ const SignUp: React.FC = () => {
             fullWidth
             variant="text"
             onClick={() => navigate('/login')}
-            disabled={loading}
+            disabled={loading || !!success}
           >
             Already have an account? Sign in
           </Button>

@@ -18,7 +18,7 @@ const validationSchema = Yup.object({
   email: Yup.string()
     .email('Invalid email address')
     .required('Email is required'),
-  token: Yup.string()
+  code: Yup.string()
     .required('Reset code is required'),
   newPassword: Yup.string()
     .min(6, 'Password must be at least 6 characters')
@@ -37,7 +37,7 @@ const ResetPassword: React.FC = () => {
 
   const handleSubmit = async (values: {
     email: string;
-    token: string;
+    code: string;
     newPassword: string;
   }) => {
     try {
@@ -46,7 +46,7 @@ const ResetPassword: React.FC = () => {
       setSuccess(null);
       await authApi.resetPassword({
         email: values.email,
-        token: values.token,
+        token: values.code,
         newPassword: values.newPassword,
       });
       setSuccess('Password has been reset successfully. Redirecting to login...');
@@ -77,7 +77,7 @@ const ResetPassword: React.FC = () => {
         <Formik
           initialValues={{
             email: searchParams.get('email') || '',
-            token: searchParams.get('token') || '',
+            code: searchParams.get('code') || '',
             newPassword: '',
             confirmPassword: '',
           }}
@@ -101,14 +101,14 @@ const ResetPassword: React.FC = () => {
               />
               <TextField
                 fullWidth
-                id="token"
-                name="token"
+                id="code"
+                name="code"
                 label="Reset Code"
-                value={values.token}
+                value={values.code}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                error={touched.token && Boolean(errors.token)}
-                helperText={touched.token && errors.token}
+                error={touched.code && Boolean(errors.code)}
+                helperText={touched.code && errors.code}
                 margin="normal"
                 disabled={loading}
               />
