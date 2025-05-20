@@ -16,11 +16,21 @@ import {
   Select,
   FormHelperText,
   Grid,
+  Chip,
+  Stack,
+  CircularProgress,
+  Alert,
+  InputAdornment,
 } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFnsV3';
 import LoadingOverlay from '../components/LoadingOverlay';
 import { useNotification } from '../contexts/NotificationContext';
+import { format } from 'date-fns';
+import {
+  Search,
+} from '@mui/icons-material';
 
 interface TripFormValues {
   destination: string;
@@ -79,7 +89,7 @@ const TripPlanner: React.FC = () => {
         // Simulate API call
         await new Promise(resolve => setTimeout(resolve, 1000));
         showSuccess('Trip plan created successfully!');
-        navigate('/summary', { state: { tripData: values } });
+        navigate('/recommendations', { state: { tripData: values } });
       } catch (error) {
         showError('Failed to create trip plan. Please try again.');
       } finally {
@@ -107,6 +117,13 @@ const TripPlanner: React.FC = () => {
                 error={formik.touched.destination && Boolean(formik.errors.destination)}
                 helperText={formik.touched.destination && formik.errors.destination}
                 disabled={isSubmitting}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <Search />
+                    </InputAdornment>
+                  ),
+                }}
               />
             </Grid>
             <Grid item xs={12}>
@@ -121,6 +138,13 @@ const TripPlanner: React.FC = () => {
                   onChange={formik.handleChange}
                   label="Interests"
                   disabled={isSubmitting}
+                  renderValue={(selected) => (
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                      {selected.map((value) => (
+                        <Chip key={value} label={value} />
+                      ))}
+                    </Box>
+                  )}
                 >
                   {interests.map((interest) => (
                     <MenuItem key={interest} value={interest}>
@@ -177,16 +201,16 @@ const TripPlanner: React.FC = () => {
               />
             </Grid>
             <Grid item xs={12}>
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                fullWidth
-                size="large"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? 'Planning Trip...' : 'Plan Trip'}
-              </Button>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  fullWidth
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Planning Trip...' : 'Plan Trip'}
+                </Button>
             </Grid>
           </Grid>
         </form>

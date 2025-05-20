@@ -1,0 +1,4364 @@
+[
+  {
+    "attractions": [
+      {
+        "id": 14,
+        "name": "Attraction 14",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 120.0,
+        "location": [
+          41.14,
+          29.04
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 19,
+        "name": "Attraction 19",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 90.0,
+        "location": [
+          41.19,
+          29.09
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 80.0,
+    "budget": 1050.0,
+    "time": 968.65,
+    "fitness": 0.005651741960668145,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 14,
+        "name": "Attraction 14",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 120.0,
+        "location": [
+          41.14,
+          29.04
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 19,
+        "name": "Attraction 19",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 90.0,
+        "location": [
+          41.19,
+          29.09
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 14,
+        "name": "Attraction 14",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 120.0,
+        "location": [
+          41.14,
+          29.04
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 19,
+        "name": "Attraction 19",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 90.0,
+        "location": [
+          41.19,
+          29.09
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 14,
+        "name": "Attraction 14",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 120.0,
+        "location": [
+          41.14,
+          29.04
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 83.0,
+    "budget": 1030.0,
+    "time": 1122.3333333333333,
+    "fitness": 0.00754547607989027,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 21,
+        "name": "Attraction 21",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 60.0,
+        "location": [
+          41.21,
+          29.11
+        ],
+        "category": "park"
+      },
+      {
+        "id": 22,
+        "name": "Attraction 22",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 90.0,
+        "location": [
+          41.22,
+          29.119999999999997
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 22,
+        "name": "Attraction 22",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 90.0,
+        "location": [
+          41.22,
+          29.119999999999997
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 66.0,
+    "budget": 660.0,
+    "time": 1012.5333333333333,
+    "fitness": 0.007569209622645863,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 21,
+        "name": "Attraction 21",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 60.0,
+        "location": [
+          41.21,
+          29.11
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 45.0,
+    "budget": 650.0,
+    "time": 469.4666666666667,
+    "fitness": 0.007617476157363178,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      },
+      {
+        "id": 21,
+        "name": "Attraction 21",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 60.0,
+        "location": [
+          41.21,
+          29.11
+        ],
+        "category": "park"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      }
+    ],
+    "score": 64.0,
+    "budget": 740.0,
+    "time": 763.8166666666666,
+    "fitness": 0.007871117129916023,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 21,
+        "name": "Attraction 21",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 60.0,
+        "location": [
+          41.21,
+          29.11
+        ],
+        "category": "park"
+      },
+      {
+        "id": 22,
+        "name": "Attraction 22",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 90.0,
+        "location": [
+          41.22,
+          29.119999999999997
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 22,
+        "name": "Attraction 22",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 90.0,
+        "location": [
+          41.22,
+          29.119999999999997
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 66.0,
+    "budget": 660.0,
+    "time": 1012.5333333333333,
+    "fitness": 0.007871535819175608,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 19,
+        "name": "Attraction 19",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 90.0,
+        "location": [
+          41.19,
+          29.09
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      },
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      }
+    ],
+    "score": 78.0,
+    "budget": 1030.0,
+    "time": 875.3833333333333,
+    "fitness": 0.007878440447997534,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      },
+      {
+        "id": 19,
+        "name": "Attraction 19",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 90.0,
+        "location": [
+          41.19,
+          29.09
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      }
+    ],
+    "score": 79.0,
+    "budget": 1090.0,
+    "time": 883.1833333333334,
+    "fitness": 0.008309269021014963,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 19,
+        "name": "Attraction 19",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 90.0,
+        "location": [
+          41.19,
+          29.09
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      }
+    ],
+    "score": 46.0,
+    "budget": 660.0,
+    "time": 494.2833333333333,
+    "fitness": 0.008409773155966924,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 21,
+        "name": "Attraction 21",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 60.0,
+        "location": [
+          41.21,
+          29.11
+        ],
+        "category": "park"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 19,
+        "name": "Attraction 19",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 90.0,
+        "location": [
+          41.19,
+          29.09
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 14,
+        "name": "Attraction 14",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 120.0,
+        "location": [
+          41.14,
+          29.04
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      }
+    ],
+    "score": 71.0,
+    "budget": 860.0,
+    "time": 814.35,
+    "fitness": 0.00859662734753328,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      },
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 21,
+        "name": "Attraction 21",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 60.0,
+        "location": [
+          41.21,
+          29.11
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 51.0,
+    "budget": 660.0,
+    "time": 598.2166666666667,
+    "fitness": 0.009108612139384705,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 31.0,
+    "budget": 460.0,
+    "time": 303.6333333333333,
+    "fitness": 0.009202849982729152,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 14.0,
+    "budget": 190.0,
+    "time": 152.51666666666665,
+    "fitness": 0.009261848094740614,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 14.0,
+    "budget": 190.0,
+    "time": 152.51666666666665,
+    "fitness": 0.009261848094740614,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 14.0,
+    "budget": 190.0,
+    "time": 152.51666666666665,
+    "fitness": 0.009261848094740614,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 14.0,
+    "budget": 190.0,
+    "time": 152.51666666666665,
+    "fitness": 0.009261848094740614,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 14.0,
+    "budget": 190.0,
+    "time": 152.51666666666665,
+    "fitness": 0.009261848094740614,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 14.0,
+    "budget": 190.0,
+    "time": 152.51666666666665,
+    "fitness": 0.009261848094740614,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 14.0,
+    "budget": 190.0,
+    "time": 152.51666666666665,
+    "fitness": 0.009261848094740614,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 22,
+        "name": "Attraction 22",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 90.0,
+        "location": [
+          41.22,
+          29.119999999999997
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 14,
+        "name": "Attraction 14",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 120.0,
+        "location": [
+          41.14,
+          29.04
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      }
+    ],
+    "score": 64.0,
+    "budget": 840.0,
+    "time": 747.2166666666667,
+    "fitness": 0.009276905558998218,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      },
+      {
+        "id": 11,
+        "name": "Attraction 11",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 120.0,
+        "location": [
+          41.11,
+          29.009999999999998
+        ],
+        "category": "park"
+      },
+      {
+        "id": 11,
+        "name": "Attraction 11",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 120.0,
+        "location": [
+          41.11,
+          29.009999999999998
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 39.0,
+    "budget": 390.0,
+    "time": 640.7666666666667,
+    "fitness": 0.009420125277090002,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 21,
+        "name": "Attraction 21",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 60.0,
+        "location": [
+          41.21,
+          29.11
+        ],
+        "category": "park"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 11,
+        "name": "Attraction 11",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 120.0,
+        "location": [
+          41.11,
+          29.009999999999998
+        ],
+        "category": "park"
+      },
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 33.0,
+    "budget": 330.0,
+    "time": 504.68333333333334,
+    "fitness": 0.009462156173097001,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      },
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 7,
+        "name": "Attraction 7",
+        "score": 7.0,
+        "budget": 120.0,
+        "time": 90.0,
+        "location": [
+          41.07,
+          28.97
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      },
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 14,
+        "name": "Attraction 14",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 120.0,
+        "location": [
+          41.14,
+          29.04
+        ],
+        "category": "gallery"
+      }
+    ],
+    "score": 77.0,
+    "budget": 1020.0,
+    "time": 888.1833333333334,
+    "fitness": 0.009544994453988865,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 7,
+        "name": "Attraction 7",
+        "score": 7.0,
+        "budget": 120.0,
+        "time": 90.0,
+        "location": [
+          41.07,
+          28.97
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      },
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 53.0,
+    "budget": 680.0,
+    "time": 599.6333333333333,
+    "fitness": 0.009786803402972253,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 19,
+        "name": "Attraction 19",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 90.0,
+        "location": [
+          41.19,
+          29.09
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 14,
+        "name": "Attraction 14",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 120.0,
+        "location": [
+          41.14,
+          29.04
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 21,
+        "name": "Attraction 21",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 60.0,
+        "location": [
+          41.21,
+          29.11
+        ],
+        "category": "park"
+      },
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 14,
+        "name": "Attraction 14",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 120.0,
+        "location": [
+          41.14,
+          29.04
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 19,
+        "name": "Attraction 19",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 90.0,
+        "location": [
+          41.19,
+          29.09
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      }
+    ],
+    "score": 78.0,
+    "budget": 880.0,
+    "time": 1080.7333333333333,
+    "fitness": 0.010185599668184631,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 14.0,
+    "budget": 190.0,
+    "time": 152.51666666666665,
+    "fitness": 0.01029971883335799,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 11,
+        "name": "Attraction 11",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 120.0,
+        "location": [
+          41.11,
+          29.009999999999998
+        ],
+        "category": "park"
+      },
+      {
+        "id": 21,
+        "name": "Attraction 21",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 60.0,
+        "location": [
+          41.21,
+          29.11
+        ],
+        "category": "park"
+      },
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 25.0,
+    "budget": 250.0,
+    "time": 448.26666666666665,
+    "fitness": 0.010312634851135925,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      }
+    ],
+    "score": 47.0,
+    "budget": 620.0,
+    "time": 548.8666666666667,
+    "fitness": 0.010428151944832932,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 11,
+        "name": "Attraction 11",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 120.0,
+        "location": [
+          41.11,
+          29.009999999999998
+        ],
+        "category": "park"
+      },
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      },
+      {
+        "id": 21,
+        "name": "Attraction 21",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 60.0,
+        "location": [
+          41.21,
+          29.11
+        ],
+        "category": "park"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 14,
+        "name": "Attraction 14",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 120.0,
+        "location": [
+          41.14,
+          29.04
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 21,
+        "name": "Attraction 21",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 60.0,
+        "location": [
+          41.21,
+          29.11
+        ],
+        "category": "park"
+      },
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 72.0,
+    "budget": 720.0,
+    "time": 1120.0166666666667,
+    "fitness": 0.010539167056984539,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 21,
+        "name": "Attraction 21",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 60.0,
+        "location": [
+          41.21,
+          29.11
+        ],
+        "category": "park"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 58.0,
+    "budget": 630.0,
+    "time": 704.65,
+    "fitness": 0.01064457703849755,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 22.0,
+    "budget": 270.0,
+    "time": 212.51666666666665,
+    "fitness": 0.010769554239288315,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      }
+    ],
+    "score": 21.0,
+    "budget": 210.0,
+    "time": 280.73333333333335,
+    "fitness": 0.010769554239288315,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      }
+    ],
+    "score": 58.0,
+    "budget": 730.0,
+    "time": 688.3166666666666,
+    "fitness": 0.010816742631742548,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      }
+    ],
+    "score": 29.0,
+    "budget": 390.0,
+    "time": 321.06666666666666,
+    "fitness": 0.01093779891398474,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 19,
+        "name": "Attraction 19",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 90.0,
+        "location": [
+          41.19,
+          29.09
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      },
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      }
+    ],
+    "score": 78.0,
+    "budget": 1030.0,
+    "time": 875.3833333333333,
+    "fitness": 0.010996117947937745,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 14,
+        "name": "Attraction 14",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 120.0,
+        "location": [
+          41.14,
+          29.04
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      },
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 21,
+        "name": "Attraction 21",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 60.0,
+        "location": [
+          41.21,
+          29.11
+        ],
+        "category": "park"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      }
+    ],
+    "score": 76.0,
+    "budget": 860.0,
+    "time": 928.1833333333333,
+    "fitness": 0.011255052057970548,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 21,
+        "name": "Attraction 21",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 60.0,
+        "location": [
+          41.21,
+          29.11
+        ],
+        "category": "park"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 19,
+        "name": "Attraction 19",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 90.0,
+        "location": [
+          41.19,
+          29.09
+        ],
+        "category": "gallery"
+      }
+    ],
+    "score": 62.0,
+    "budget": 770.0,
+    "time": 673.7833333333333,
+    "fitness": 0.011385722802320518,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 20.0,
+    "budget": 250.0,
+    "time": 253.88333333333333,
+    "fitness": 0.011407603615349971,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 11,
+        "name": "Attraction 11",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 120.0,
+        "location": [
+          41.11,
+          29.009999999999998
+        ],
+        "category": "park"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 22,
+        "name": "Attraction 22",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 90.0,
+        "location": [
+          41.22,
+          29.119999999999997
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 21,
+        "name": "Attraction 21",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 60.0,
+        "location": [
+          41.21,
+          29.11
+        ],
+        "category": "park"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 11,
+        "name": "Attraction 11",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 120.0,
+        "location": [
+          41.11,
+          29.009999999999998
+        ],
+        "category": "park"
+      },
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 70.0,
+    "budget": 700.0,
+    "time": 1079.8166666666666,
+    "fitness": 0.01156180864952968,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      }
+    ],
+    "score": 28.0,
+    "budget": 330.0,
+    "time": 288.3333333333333,
+    "fitness": 0.011806861223480979,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 7,
+        "name": "Attraction 7",
+        "score": 7.0,
+        "budget": 120.0,
+        "time": 90.0,
+        "location": [
+          41.07,
+          28.97
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      }
+    ],
+    "score": 52.0,
+    "budget": 670.0,
+    "time": 626.2833333333333,
+    "fitness": 0.011811865355053871,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 21,
+        "name": "Attraction 21",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 60.0,
+        "location": [
+          41.21,
+          29.11
+        ],
+        "category": "park"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      }
+    ],
+    "score": 45.0,
+    "budget": 600.0,
+    "time": 581.9,
+    "fitness": 0.011858096280787364,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 11,
+        "name": "Attraction 11",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 120.0,
+        "location": [
+          41.11,
+          29.009999999999998
+        ],
+        "category": "park"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 20.0,
+    "budget": 200.0,
+    "time": 327.4,
+    "fitness": 0.011861464236929926,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 19,
+        "name": "Attraction 19",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 90.0,
+        "location": [
+          41.19,
+          29.09
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 14,
+        "name": "Attraction 14",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 120.0,
+        "location": [
+          41.14,
+          29.04
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 21,
+        "name": "Attraction 21",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 60.0,
+        "location": [
+          41.21,
+          29.11
+        ],
+        "category": "park"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      }
+    ],
+    "score": 78.0,
+    "budget": 930.0,
+    "time": 909.0666666666666,
+    "fitness": 0.011974048807986436,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 21,
+        "name": "Attraction 21",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 60.0,
+        "location": [
+          41.21,
+          29.11
+        ],
+        "category": "park"
+      },
+      {
+        "id": 21,
+        "name": "Attraction 21",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 60.0,
+        "location": [
+          41.21,
+          29.11
+        ],
+        "category": "park"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      }
+    ],
+    "score": 73.0,
+    "budget": 830.0,
+    "time": 871.7166666666667,
+    "fitness": 0.012026911736689079,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 21,
+        "name": "Attraction 21",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 60.0,
+        "location": [
+          41.21,
+          29.11
+        ],
+        "category": "park"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 19,
+        "name": "Attraction 19",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 90.0,
+        "location": [
+          41.19,
+          29.09
+        ],
+        "category": "gallery"
+      }
+    ],
+    "score": 62.0,
+    "budget": 770.0,
+    "time": 673.7833333333333,
+    "fitness": 0.012127100239944219,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 22,
+        "name": "Attraction 22",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 90.0,
+        "location": [
+          41.22,
+          29.119999999999997
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 11,
+        "name": "Attraction 11",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 120.0,
+        "location": [
+          41.11,
+          29.009999999999998
+        ],
+        "category": "park"
+      },
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 52.0,
+    "budget": 520.0,
+    "time": 794.4166666666666,
+    "fitness": 0.012156417735756792,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 21,
+        "name": "Attraction 21",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 60.0,
+        "location": [
+          41.21,
+          29.11
+        ],
+        "category": "park"
+      },
+      {
+        "id": 14,
+        "name": "Attraction 14",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 120.0,
+        "location": [
+          41.14,
+          29.04
+        ],
+        "category": "gallery"
+      }
+    ],
+    "score": 55.0,
+    "budget": 550.0,
+    "time": 710.3166666666666,
+    "fitness": 0.012415485719573231,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 21,
+        "name": "Attraction 21",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 60.0,
+        "location": [
+          41.21,
+          29.11
+        ],
+        "category": "park"
+      },
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 9,
+        "name": "Attraction 9",
+        "score": 9.0,
+        "budget": 140.0,
+        "time": 60.0,
+        "location": [
+          41.09,
+          28.99
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 7,
+        "name": "Attraction 7",
+        "score": 7.0,
+        "budget": 120.0,
+        "time": 90.0,
+        "location": [
+          41.07,
+          28.97
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 1,
+        "name": "Attraction 1",
+        "score": 6.0,
+        "budget": 60.0,
+        "time": 90.0,
+        "location": [
+          41.01,
+          28.91
+        ],
+        "category": "park"
+      }
+    ],
+    "score": 69.0,
+    "budget": 840.0,
+    "time": 790.0666666666666,
+    "fitness": 0.0124813453413718,
+    "violations": 0.0
+  },
+  {
+    "attractions": [
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 18,
+        "name": "Attraction 18",
+        "score": 8.0,
+        "budget": 130.0,
+        "time": 60.0,
+        "location": [
+          41.18,
+          29.08
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 4,
+        "name": "Attraction 4",
+        "score": 9.0,
+        "budget": 90.0,
+        "time": 90.0,
+        "location": [
+          41.04,
+          28.939999999999998
+        ],
+        "category": "gallery"
+      },
+      {
+        "id": 6,
+        "name": "Attraction 6",
+        "score": 6.0,
+        "budget": 110.0,
+        "time": 60.0,
+        "location": [
+          41.06,
+          28.959999999999997
+        ],
+        "category": "park"
+      },
+      {
+        "id": 13,
+        "name": "Attraction 13",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 90.0,
+        "location": [
+          41.13,
+          29.029999999999998
+        ],
+        "category": "cafe"
+      },
+      {
+        "id": 12,
+        "name": "Attraction 12",
+        "score": 7.0,
+        "budget": 70.0,
+        "time": 60.0,
+        "location": [
+          41.12,
+          29.02
+        ],
+        "category": "mosque"
+      },
+      {
+        "id": 3,
+        "name": "Attraction 3",
+        "score": 8.0,
+        "budget": 80.0,
+        "time": 60.0,
+        "location": [
+          41.03,
+          28.93
+        ],
+        "category": "cafe"
+      }
+    ],
+    "score": 54.0,
+    "budget": 640.0,
+    "time": 647.3333333333334,
+    "fitness": 0.012812925823295641,
+    "violations": 0.0
+  }
+]

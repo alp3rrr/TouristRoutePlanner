@@ -19,6 +19,9 @@ import UserProfile from './pages/UserProfile';
 import EmailConfirmation from './pages/EmailConfirmation';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
+import Recommendations from './pages/Recommendations';
+import SavedTrips from './pages/SavedTrips';
+import TestItinerary from './pages/TestItinerary';
 import theme from './utils/theme';
 
 function App() {
@@ -75,6 +78,30 @@ function App() {
                       element={
                         <ProtectedRoute>
                           <UserProfile />
+                        </ProtectedRoute>
+                      }
+                    />
+                    <Route
+                      path="/recommendations"
+                      element={
+                        <ProtectedRoute>
+                          <Recommendations />
+                        </ProtectedRoute>
+                      }
+                    />
+                    <Route
+                      path="/saved-trips"
+                      element={
+                        <ProtectedRoute>
+                          <SavedTrips />
+                        </ProtectedRoute>
+                      }
+                    />
+                    <Route
+                      path="/test-itinerary"
+                      element={
+                        <ProtectedRoute>
+                          <TestItinerary />
                         </ProtectedRoute>
                       }
                     />

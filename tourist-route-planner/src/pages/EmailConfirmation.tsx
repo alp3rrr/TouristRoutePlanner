@@ -34,7 +34,7 @@ const EmailConfirmation: React.FC = () => {
         setMessage('Email confirmed! Redirecting to login page...');
         setTimeout(() => navigate('/login'), 2000);
       })
-      .catch((err) => {
+      .catch((err: any) => {
         setStatus('error');
         setMessage(
           typeof err.response?.data === 'string'

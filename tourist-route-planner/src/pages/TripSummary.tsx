@@ -25,13 +25,36 @@ import {
   Map,
 } from '@mui/icons-material';
 
+interface Activity {
+  time: string;
+  name: string;
+  type: string;
+  duration: string;
+  location: [number, number];
+}
+
+interface Day {
+  day: number;
+  date: string;
+  activities: Activity[];
+}
+
+interface TripData {
+  destination: string;
+  startDate: string | Date;
+  endDate: string | Date;
+  budget: number;
+  interests: string[];
+  itinerary: Day[];
+}
+
 const TripSummary: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const formTripData = location.state?.tripData;
+  const formTripData = location.state?.tripData as TripData | undefined;
 
   // Mock data for trip summary
-  const mockTripData = {
+  const mockTripData: TripData = {
     destination: 'Istanbul, Turkey',
     startDate: '2024-04-15',
     endDate: '2024-04-22',
@@ -47,18 +70,21 @@ const TripSummary: React.FC = () => {
             name: 'Hagia Sophia',
             type: 'museum',
             duration: '2 hours',
+            location: [41.0082, 28.9784],
           },
           {
             time: '13:00',
             name: 'Lunch at Sultanahmet Köftecisi',
             type: 'restaurant',
             duration: '1 hour',
+            location: [41.0082, 28.9784],
           },
           {
             time: '15:00',
             name: 'Blue Mosque',
             type: 'museum',
             duration: '1.5 hours',
+            location: [41.0082, 28.9784],
           },
         ],
       },
@@ -71,12 +97,14 @@ const TripSummary: React.FC = () => {
             name: 'Topkapi Palace',
             type: 'museum',
             duration: '3 hours',
+            location: [41.0082, 28.9784],
           },
           {
             time: '14:00',
             name: 'Grand Bazaar',
             type: 'shopping',
             duration: '2 hours',
+            location: [41.0082, 28.9784],
           },
         ],
       },
@@ -87,15 +115,18 @@ const TripSummary: React.FC = () => {
   const tripData = formTripData ? {
     ...mockTripData,
     destination: formTripData.destination,
-    startDate: formTripData.startDate instanceof Date 
-      ? formTripData.startDate.toISOString().split('T')[0]
-      : formTripData.startDate,
-    endDate: formTripData.endDate instanceof Date 
-      ? formTripData.endDate.toISOString().split('T')[0]
-      : formTripData.endDate,
+    startDate: typeof formTripData.startDate === 'string' 
+      ? formTripData.startDate
+      : formTripData.startDate.toISOString().split('T')[0],
+    endDate: typeof formTripData.endDate === 'string'
+      ? formTripData.endDate
+      : formTripData.endDate.toISOString().split('T')[0],
     budget: formTripData.budget,
     interests: formTripData.interests,
+    itinerary: formTripData.itinerary || mockTripData.itinerary
   } : mockTripData;
+
+  console.log(tripData);
 
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
@@ -204,6 +235,12 @@ const TripSummary: React.FC = () => {
                               size="small"
                               startIcon={<Directions />}
                               sx={{ ml: 2 }}
+                              onClick={() => {
+                                // Open Google Maps with the destination coordinates
+                                const [lat, lng] = activity.location;
+                                const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+                                window.open(mapsUrl, '_blank');
+                              }}
                             >
                               Directions
                             </Button>

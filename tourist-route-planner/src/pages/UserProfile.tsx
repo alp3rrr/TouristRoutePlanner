@@ -95,13 +95,13 @@ const UserProfile: React.FC = () => {
   return (
     <Container maxWidth="md" sx={{ py: 4 }}>
       <Paper elevation={3} sx={{ p: 4 }}>
-        <Typography variant="h4" gutterBottom>
-          User Profile
-        </Typography>
-        <Box display="flex" justifyContent="center" mb={3}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
           <Avatar sx={{ width: 64, height: 64, fontSize: 32 }}>
             {formik.values.firstName?.[0] || 'U'}
           </Avatar>
+          <Typography variant="h4">
+            User Profile
+          </Typography>
         </Box>
         {updateError && (
           <Alert severity="error" sx={{ mb: 2 }}>

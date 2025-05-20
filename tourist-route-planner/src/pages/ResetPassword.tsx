@@ -15,11 +15,6 @@ import {
 import { authApi } from '../services/api';
 
 const validationSchema = Yup.object({
-  email: Yup.string()
-    .email('Invalid email address')
-    .required('Email is required'),
-  code: Yup.string()
-    .required('Reset code is required'),
   newPassword: Yup.string()
     .min(6, 'Password must be at least 6 characters')
     .required('New password is required'),
@@ -35,18 +30,34 @@ const ResetPassword: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
 
-  const handleSubmit = async (values: {
-    email: string;
-    code: string;
-    newPassword: string;
-  }) => {
+  const email = searchParams.get('email');
+  const code = searchParams.get('code');
+
+  if (!email || !code) {
+    return (
+      <Container maxWidth="sm">
+        <Paper elevation={3} sx={{ p: 4, mt: 4 }}>
+          <Alert severity="error">
+            Invalid reset password link. Please request a new password reset.
+          </Alert>
+          <Box textAlign="center" sx={{ mt: 2 }}>
+            <Link component={RouterLink} to="/forgot-password" variant="body2">
+              Request Password Reset
+            </Link>
+          </Box>
+        </Paper>
+      </Container>
+    );
+  }
+
+  const handleSubmit = async (values: { newPassword: string }) => {
     try {
       setLoading(true);
       setError(null);
       setSuccess(null);
       await authApi.resetPassword({
-        email: values.email,
-        token: values.code,
+        email,
+        token: code,
         newPassword: values.newPassword,
       });
       setSuccess('Password has been reset successfully. Redirecting to login...');
@@ -76,8 +87,6 @@ const ResetPassword: React.FC = () => {
         )}
         <Formik
           initialValues={{
-            email: searchParams.get('email') || '',
-            code: searchParams.get('code') || '',
             newPassword: '',
             confirmPassword: '',
           }}
@@ -86,32 +95,6 @@ const ResetPassword: React.FC = () => {
         >
           {({ values, errors, touched, handleChange, handleBlur }) => (
             <Form>
-              <TextField
-                fullWidth
-                id="email"
-                name="email"
-                label="Email"
-                value={values.email}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                error={touched.email && Boolean(errors.email)}
-                helperText={touched.email && errors.email}
-                margin="normal"
-                disabled={loading}
-              />
-              <TextField
-                fullWidth
-                id="code"
-                name="code"
-                label="Reset Code"
-                value={values.code}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                error={touched.code && Boolean(errors.code)}
-                helperText={touched.code && errors.code}
-                margin="normal"
-                disabled={loading}
-              />
               <TextField
                 fullWidth
                 id="newPassword"
