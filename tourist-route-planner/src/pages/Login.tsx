@@ -53,12 +53,20 @@ const Login: React.FC = () => {
           onSubmit={handleSubmit}
         >
           {({ values, errors, touched, handleChange, handleBlur }) => (
-            <Form>
+            <Form
+              name="login-form"
+              role="form"
+              aria-label="Login form"
+              action="/login"
+              method="post"
+            >
               <TextField
                 fullWidth
                 id="email"
                 name="email"
                 label="Email"
+                type="email"
+                autoComplete="email"
                 value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -66,6 +74,13 @@ const Login: React.FC = () => {
                 helperText={touched.email && errors.email}
                 margin="normal"
                 disabled={loading}
+                inputProps={{
+                  autoCapitalize: "none",
+                  autoCorrect: "off",
+                  spellCheck: "false",
+                  "aria-label": "Email address",
+                  "aria-required": "true"
+                }}
               />
               <TextField
                 fullWidth
@@ -73,6 +88,7 @@ const Login: React.FC = () => {
                 name="password"
                 label="Password"
                 type="password"
+                autoComplete="current-password"
                 value={values.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -80,6 +96,13 @@ const Login: React.FC = () => {
                 helperText={touched.password && errors.password}
                 margin="normal"
                 disabled={loading}
+                inputProps={{
+                  autoCapitalize: "none",
+                  autoCorrect: "off",
+                  spellCheck: "false",
+                  "aria-label": "Password",
+                  "aria-required": "true"
+                }}
               />
               <Button
                 type="submit"
@@ -88,6 +111,7 @@ const Login: React.FC = () => {
                 color="primary"
                 sx={{ mt: 3, mb: 2 }}
                 disabled={loading}
+                aria-label="Login button"
               >
                 {loading ? 'Logging in...' : 'Login'}
               </Button>

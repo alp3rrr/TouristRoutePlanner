@@ -28,6 +28,11 @@ import {
   Tooltip,
   LinearProgress,
   Fade,
+  Stepper,
+  Step,
+  StepLabel,
+  StepContent,
+  StepConnector,
 } from '@mui/material';
 import {
   AccessTime,
@@ -41,7 +46,7 @@ import {
   ShoppingBag,
   Event,
   Map,
-  Timeline as TimelineIcon,
+  Timeline,
   Edit,
   Share,
   Download,
@@ -62,20 +67,16 @@ import {
   NavigateNext,
   Close,
   Navigation,
+  NavigateNextSharp,
+  KeyboardArrowUp,
+  KeyboardArrowDown,
 } from '@mui/icons-material';
 import { format } from 'date-fns';
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow, Polyline } from '@react-google-maps/api';
 import CloseIcon from '@mui/icons-material/Close';
 import NavigationIcon from '@mui/icons-material/Navigation';
-import {
-  Timeline,
-  TimelineItem,
-  TimelineSeparator,
-  TimelineDot,
-  TimelineConnector,
-  TimelineContent,
-  TimelineOppositeContent
-} from '@mui/lab';
+import { styled } from '@mui/material/styles';
+import { stepConnectorClasses } from '@mui/material/StepConnector';
 
 interface Activity {
   id: string;
@@ -130,6 +131,17 @@ const containerStyle = {
   overflow: 'hidden'
 };
 
+const markerSVGs: Record<string, string> = {
+  attraction: `data:image/svg+xml;utf8,<svg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><ellipse cx='16' cy='13' rx='8' ry='8' fill='%23FF5252'/><rect x='14' y='13' width='4' height='12' rx='2' fill='%23FF5252'/><ellipse cx='16' cy='13' rx='3' ry='3' fill='white'/></svg>`,
+  restaurant: `data:image/svg+xml;utf8,<svg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><ellipse cx='16' cy='13' rx='8' ry='8' fill='%234CAF50'/><rect x='14' y='13' width='4' height='12' rx='2' fill='%234CAF50'/><ellipse cx='16' cy='13' rx='3' ry='3' fill='white'/></svg>`,
+  hotel: `data:image/svg+xml;utf8,<svg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><ellipse cx='16' cy='13' rx='8' ry='8' fill='%232196F3'/><rect x='14' y='13' width='4' height='12' rx='2' fill='%232196F3'/><ellipse cx='16' cy='13' rx='3' ry='3' fill='white'/></svg>`,
+  shopping: `data:image/svg+xml;utf8,<svg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><ellipse cx='16' cy='13' rx='8' ry='8' fill='%23FFC107'/><rect x='14' y='13' width='4' height='12' rx='2' fill='%23FFC107'/><ellipse cx='16' cy='13' rx='3' ry='3' fill='white'/></svg>`,
+  event: `data:image/svg+xml;utf8,<svg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><ellipse cx='16' cy='13' rx='8' ry='8' fill='%239C27B0'/><rect x='14' y='13' width='4' height='12' rx='2' fill='%239C27B0'/><ellipse cx='16' cy='13' rx='3' ry='3' fill='white'/></svg>`
+};
+
+const getMarkerIcon = (type: string) => {
+  return markerSVGs[type] || markerSVGs['attraction'];
+};
 
 const Itinerary: React.FC<ItineraryProps> = ({ tripData }) => {
   const theme = useTheme();
@@ -138,10 +150,11 @@ const Itinerary: React.FC<ItineraryProps> = ({ tripData }) => {
   const [selectedActivityIndex, setSelectedActivityIndex] = useState(0);
   const [viewMode, setViewMode] = useState<'timeline' | 'map'>('timeline');
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [filterAnchorEl, setFilterAnchorEl] = useState<null | HTMLElement>(null);
+  const [sortAnchorEl, setSortAnchorEl] = useState<null | HTMLElement>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
   const [sortBy, setSortBy] = useState<'time' | 'cost' | 'rating'>('time');
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const [isDayTransitioning, setIsDayTransitioning] = useState(false);
   const [selectedMarker, setSelectedMarker] = useState<Activity | null>(null);
   const mapRef = useRef<google.maps.Map | null>(null);
@@ -150,25 +163,48 @@ const Itinerary: React.FC<ItineraryProps> = ({ tripData }) => {
   // Calculate total budget and spent amount
   const totalBudget = tripData.budget;
   const spentAmount = tripData.itinerary.reduce((total, day) => {
-    return total + day.activities.reduce((dayTotal, activity) => dayTotal + activity.cost, 0);
+    return total + day.activities.reduce((dayTotal, activity) => {
+      return dayTotal + (activity.cost || 0);
+    }, 0);
   }, 0);
- 
+
+  // Filter activities for the selected day and apply search/filter/sort
+  const filteredActivities = tripData.itinerary[selectedDay].activities
+    .filter(activity => {
+      const matchesSearch = activity.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          activity.description.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesType = selectedTypes.length === 0 || selectedTypes.includes(activity.type);
+      return matchesSearch && matchesType;
+    })
+    .sort((a, b) => {
+      switch (sortBy) {
+        case 'time':
+          return a.time.localeCompare(b.time);
+        case 'cost':
+          return b.cost - a.cost;
+        case 'rating':
+          return b.rating - a.rating;
+        default:
+          return 0;
+      }
+    });
+
+  // Check if this is the last activity of the entire trip
+  const isLastActivityOfTrip = selectedDay === tripData.itinerary.length - 1 && 
+                             selectedActivityIndex === filteredActivities.length - 1;
+
+  // Calculate remaining budget
+  const remainingBudget = totalBudget - spentAmount;
+  const budgetProgress = (spentAmount / totalBudget) * 100;
+
   const handleNextActivity = () => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setSelectedActivityIndex(prev => 
-        Math.min(filteredActivities.length - 1, prev + 1)
-      );
-      setIsTransitioning(false);
-    }, 300);
+    setSelectedActivityIndex(prev => 
+      Math.min(filteredActivities.length - 1, prev + 1)
+    );
   };
 
   const handlePreviousActivity = () => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setSelectedActivityIndex(prev => Math.max(0, prev - 1));
-      setIsTransitioning(false);
-    }, 300);
+    setSelectedActivityIndex(prev => Math.max(0, prev - 1));
   };
 
   const handleDayChange = (day: number) => {
@@ -177,7 +213,23 @@ const Itinerary: React.FC<ItineraryProps> = ({ tripData }) => {
       setSelectedDay(day);
       setSelectedActivityIndex(0);
       setIsDayTransitioning(false);
-    }, 500);
+    }, 300);
+  };
+
+  const handleFilterClick = (event: React.MouseEvent<HTMLElement>) => {
+    setFilterAnchorEl(event.currentTarget);
+  };
+
+  const handleSortClick = (event: React.MouseEvent<HTMLElement>) => {
+    setSortAnchorEl(event.currentTarget);
+  };
+
+  const handleFilterClose = () => {
+    setFilterAnchorEl(null);
+  };
+
+  const handleSortClose = () => {
+    setSortAnchorEl(null);
   };
 
   const handleTypeToggle = (type: string) => {
@@ -238,27 +290,6 @@ const Itinerary: React.FC<ItineraryProps> = ({ tripData }) => {
         return <DirectionsWalk />;
     }
   };
-
-  // Filter and sort activities
-  const filteredActivities = tripData.itinerary[selectedDay].activities
-    .filter(activity => {
-      const matchesSearch = activity.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          activity.description.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesType = selectedTypes.length === 0 || selectedTypes.includes(activity.type);
-      return matchesSearch && matchesType;
-    })
-    .sort((a, b) => {
-      switch (sortBy) {
-        case 'time':
-          return a.time.localeCompare(b.time);
-        case 'cost':
-          return b.cost - a.cost;
-        case 'rating':
-          return b.rating - a.rating;
-        default:
-          return 0;
-      }
-    });
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
@@ -356,7 +387,7 @@ const Itinerary: React.FC<ItineraryProps> = ({ tripData }) => {
       <Box sx={{ mb: 3, display: 'flex', gap: 2 }}>
         <Button
           variant={viewMode === 'timeline' ? 'contained' : 'outlined'}
-          startIcon={<TimelineIcon />}
+          startIcon={<Timeline />}
           onClick={() => setViewMode('timeline')}
         >
           Timeline View
@@ -404,13 +435,13 @@ const Itinerary: React.FC<ItineraryProps> = ({ tripData }) => {
 
         {/* Timeline/Map View */}
         <Grid item xs={12}>
-          <Fade in={!isDayTransitioning} timeout={500}>
+          <Fade in={!isDayTransitioning} timeout={300}>
             <div>
               {viewMode === 'timeline' ? (
                 <Paper sx={{ p: 3 }}>
                   {/* Weather Forecast */}
                   {tripData.itinerary[selectedDay].weather && (
-                    <Box sx={{ mb: 3, display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <Box sx={{ mb: 1, display: 'flex', alignItems: 'center', gap: 2 }}>
                       {tripData.itinerary[selectedDay].weather?.icon}
                       <Typography>
                         {tripData.itinerary[selectedDay].weather?.temperature}°C - {tripData.itinerary[selectedDay].weather?.condition}
@@ -420,27 +451,240 @@ const Itinerary: React.FC<ItineraryProps> = ({ tripData }) => {
 
                   <Box sx={{ mt: 3 }}>
                     {filteredActivities.length > 0 ? (
-                      <Paper sx={{ p: 2 }}>
-                        <Timeline position="right">
-                          {filteredActivities.map((activity, idx) => (
-                            <TimelineItem key={activity.id}>
-                              <TimelineOppositeContent color="text.secondary" sx={{ flex: 0.15 }}>
-                                {activity.time}
-                              </TimelineOppositeContent>
-                              <TimelineSeparator>
-                                <TimelineDot color="primary" />
-                                {idx < filteredActivities.length - 1 && <TimelineConnector />}
-                              </TimelineSeparator>
-                              <TimelineContent>
-                                <Typography variant="subtitle1">{activity.name}</Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                  {activity.description}
-                                </Typography>
-                              </TimelineContent>
-                            </TimelineItem>
-                          ))}
-                        </Timeline>
-                      </Paper>
+                      <>
+                        <div>
+                          <Box sx={{ width: '100%', mb: 2 }}>
+                            <Stepper
+                              activeStep={selectedActivityIndex}
+                              orientation="vertical"
+                              sx={{
+                                '& .MuiStepLabel-label': {
+                                  fontSize: '0.875rem',
+                                },
+                                '& .MuiStepLabel-iconContainer': {
+                                  paddingRight: 2,
+                                  '& .MuiStepIcon-root': {
+                                    '&.Mui-active': {
+                                    },
+                                    '&.Mui-completed': {
+                                    },
+                                  },
+                                },
+                                '& .MuiStepContent-root': {
+                                },
+                              }}
+                            >
+                              {filteredActivities.map((activity, index) => (
+                                <Step key={activity.id}>
+                                  <StepLabel
+                                    onClick={() => {
+                                      setSelectedActivityIndex(index);
+                                    }}
+                                    sx={{ 
+                                      cursor: 'pointer',
+                                      '&:hover': {
+                                        '& .MuiStepLabel-label': {
+                                        }
+                                      }
+                                    }}
+                                  >
+                                    <Box sx={{ 
+                                      display: 'flex', 
+                                      flexDirection: 'column', 
+                                      alignItems: 'flex-start',
+                                      transition: 'all 0.2s ease-in-out'
+                                    }}>
+                                      <Typography 
+                                        variant="subtitle1" 
+                                        sx={{ 
+                                          fontWeight: selectedActivityIndex === index ? 400 : 300
+                                        }}
+                                      >
+                                        {activity.time} - {activity.name}
+                                      </Typography>
+                                      <Stack direction="row" spacing={1} sx={{ mt: 0.5 }}>
+                                        <Chip
+                                          icon={getActivityIcon(activity.type)}
+                                          label={activity.type}
+                                          size="small"
+                                          sx={{ 
+                                            bgcolor: 'primary.light',
+                                            color: 'primary.contrastText',
+                                            '& .MuiChip-icon': { color: 'inherit' }
+                                          }}
+                                        />
+                                      </Stack>
+                                    </Box>
+                                  </StepLabel>
+                                  <StepContent>
+                                    <Box>
+                                      <Card 
+                                        sx={{ 
+                                          mt: 1,
+                                          boxShadow: 3,
+                                          borderRadius: 2,
+                                          overflow: 'hidden',
+                                          transition: 'all 0.3s ease-in-out',
+                                          '&:hover': {
+                                            boxShadow: 6,
+                                            transform: 'translateY(-2px)'
+                                          }
+                                        }}
+                                      >
+                                        <CardContent>
+                                          <Grid container spacing={2}>
+                                            <Grid item xs={12} sm={8}>
+                                              <Typography 
+                                                variant="body1" 
+                                                color="text.secondary" 
+                                                paragraph
+                                                sx={{ 
+                                                  lineHeight: 1.6,
+                                                  mb: 2
+                                                }}
+                                              >
+                                                {activity.description}
+                                              </Typography>
+                                            </Grid>
+                                            {activity.image && (
+                                              <Grid item xs={12} sm={4}>
+                                                <Box
+                                                  component="img"
+                                                  src={activity.image}
+                                                  alt={activity.name}
+                                                  sx={{
+                                                    width: '100%',
+                                                    height: 200,
+                                                    objectFit: 'cover',
+                                                    borderRadius: 1,
+                                                    boxShadow: 2
+                                                  }}
+                                                />
+                                              </Grid>
+                                            )}
+                                          </Grid>
+                                        </CardContent>
+                                        <CardActions sx={{ 
+                                          p: 2, 
+                                          pt: 0,
+                                          justifyContent: 'space-between',
+                                          gap: 1
+                                        }}>
+                                          <Stack direction="row" spacing={1} sx={{ justifyContent: 'flex-start', flexGrow: 1 }}>
+                                            <Chip
+                                              icon={<AccessTime />}
+                                              label={activity.duration}
+                                              size="small"
+                                              variant="outlined"
+                                            />
+                                            <Chip
+                                              icon={<AttachMoney />}
+                                              label={`$${activity.cost}`}
+                                              size="small"
+                                              variant="outlined"
+                                            />
+                                            <Chip
+                                              label={`${activity.rating}★`}
+                                              size="small"
+                                              color="primary"
+                                            />
+                                          </Stack>
+                                          <Stack direction="row" spacing={1}>
+                                            <Button 
+                                              variant="outlined" 
+                                              size="small" 
+                                              startIcon={<Map />} 
+                                              onClick={() => handleViewOnMap(activity)}
+                                            >
+                                              View on Map
+                                            </Button>
+                                            <Button
+                                              variant="contained"
+                                              size="small" 
+                                              startIcon={<DirectionsWalk />} 
+                                              onClick={() => handleGetDirections(activity)}
+                                            >
+                                              Get Directions
+                                            </Button>
+                                          </Stack>
+                                        </CardActions>
+                                      </Card>
+                                      <Box sx={{ 
+                                        display: 'flex', 
+                                        justifyContent: 'flex-end', 
+                                        alignItems: 'center', 
+                                        mt: 2,
+                                        mb: 1,
+                                        gap: 1
+                                      }}>
+                                        {selectedActivityIndex > 0 && (
+                                          <Button
+                                            variant="outlined"
+                                            startIcon={<KeyboardArrowUp />}
+                                            onClick={handlePreviousActivity}
+                                            size="small"
+                                            sx={{ 
+                                              borderRadius: 1,
+                                              textTransform: 'none',
+                                              px: 2,
+                                              minWidth: 'auto',
+                                              '& .MuiButton-startIcon': {
+                                                marginRight: 0.5
+                                              }
+                                            }}
+                                          >
+                                            Previous
+                                          </Button>
+                                        )}
+                                        {(!isLastActivityOfTrip) && (
+                                          selectedActivityIndex < filteredActivities.length - 1 && (
+                                            <Button
+                                              variant="contained"
+                                              endIcon={<KeyboardArrowDown />}
+                                              onClick={handleNextActivity}
+                                              size="small"
+                                              sx={{ 
+                                                borderRadius: 1,
+                                                textTransform: 'none',
+                                                px: 2,
+                                                minWidth: 'auto',
+                                                '& .MuiButton-endIcon': {
+                                                  marginLeft: 0.5
+                                                }
+                                              }}
+                                            >
+                                              Next
+                                            </Button>
+                                          )
+                                        )}
+                                        {isLastActivityOfTrip && (
+                                          <Button
+                                            variant="contained"
+                                            onClick={handleNextActivity}
+                                            size="small"
+                                            sx={{ 
+                                              borderRadius: 1,
+                                              textTransform: 'none',
+                                              px: 2,
+                                              minWidth: 'auto',
+                                              bgcolor: 'success.main',
+                                              '&:hover': {
+                                                bgcolor: 'success.dark',
+                                              }
+                                            }}
+                                          >
+                                            Complete Trip
+                                          </Button>
+                                        )}
+                                      </Box>
+                                    </Box>
+                                  </StepContent>
+                                </Step>
+                              ))}
+                            </Stepper>
+                          </Box>
+                        </div>
+                      </>
                     ) : (
                       <Paper sx={{ p: 3, textAlign: 'center' }}>
                         <Typography variant="h6" color="text.secondary" gutterBottom>
@@ -622,7 +866,7 @@ const Itinerary: React.FC<ItineraryProps> = ({ tripData }) => {
                             return newIndex;
                           });
                         }}
-                        disabled={selectedActivityIndex === 0 || isTransitioning}
+                        disabled={selectedActivityIndex === 0 || isDayTransitioning}
                       >
                         Previous Activity
                       </Button>
@@ -639,7 +883,7 @@ const Itinerary: React.FC<ItineraryProps> = ({ tripData }) => {
                             return newIndex;
                           });
                         }}
-                        disabled={selectedActivityIndex === filteredActivities.length - 1 || isTransitioning}
+                        disabled={selectedActivityIndex === filteredActivities.length - 1 || isDayTransitioning}
                       >
                         Next Activity
                       </Button>

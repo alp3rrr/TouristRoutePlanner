@@ -39,13 +39,20 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   useEffect(() => {
     const token = localStorage.getItem('token');
+    const storedUser = localStorage.getItem('user');
 
     if (!token) {
       setLoading(false);
       setIsAuthenticated(false);
       return;
     }
-    
+
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+      setIsAuthenticated(true);
+      setLoading(false);
+      return;
+    }
 
     const fetchProfile = async () => {
       try {
@@ -55,7 +62,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       } catch (error) {
         console.error("Failed to fetch profile", error);
         setIsAuthenticated(false);
-        localStorage.removeItem('token'); 
+        localStorage.removeItem('token');
+        localStorage.removeItem('refreshToken');
       } finally {
         setLoading(false);
       }
@@ -69,25 +77,46 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setLoading(true);
       setError(null);
       const response = await authApi.login({ username, password });
-      const { jwtToken } = response.data;
+      const { jwtToken, refreshToken, user } = response.data;
       localStorage.setItem('token', jwtToken);
+      localStorage.setItem('refreshToken', refreshToken);
+      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('userId', user.id);
       
-      // Fetch user profile after successful login
-      const profileResponse = await authApi.getProfile();
-      setUser(profileResponse.data);
+      setUser(user);
       setIsAuthenticated(true);
     } catch (err: any) {
-      setError(err.response?.data?.message || 'Login failed, username or password is incorrect.');
+      if (err.response?.status === 400) {
+        setError('Invalid username or password');
+      } else if (err.response?.status === 500) {
+        setError('Server error occurred. Please try again later.');
+      } else {
+        setError(err.response?.data?.message || 'An unexpected error occurred. Please try again.');
+      }
       throw err;
     } finally {
       setLoading(false);
     }
   };
 
-  const logout = () => {
-    localStorage.removeItem('token');
-    setUser(null);
-    setIsAuthenticated(false);
+  const logout = async () => {
+    try {
+      const refreshToken = localStorage.getItem('refreshToken');
+      const userId = localStorage.getItem('userId');
+      
+      if (refreshToken && userId) {
+        await authApi.logout({ refreshToken, userId });
+      }
+    } catch (error) {
+      console.error('Logout failed:', error);
+    } finally {
+      localStorage.removeItem('token');
+      localStorage.removeItem('refreshToken');
+      localStorage.removeItem('user');
+      localStorage.removeItem('userId');
+      setUser(null);
+      setIsAuthenticated(false);
+    }
   };
 
   const register = async (data: {
